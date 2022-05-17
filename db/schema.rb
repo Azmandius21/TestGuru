@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_05_14_171603) do
 
   create_table "answers", force: :cascade do |t|
@@ -39,11 +40,18 @@ ActiveRecord::Schema.define(version: 2022_05_14_171603) do
 
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
+=======
+ActiveRecord::Schema.define(version: 2022_05_04_193230) do
+
+  create_table "tests", force: :cascade do |t|
+    t.string "title"
+>>>>>>> ab0fcb37b413fd517d0c8c9d16c2455eb6d349a5
     t.integer "level"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+<<<<<<< HEAD
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email"
@@ -53,4 +61,6 @@ ActiveRecord::Schema.define(version: 2022_05_14_171603) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+=======
+>>>>>>> ab0fcb37b413fd517d0c8c9d16c2455eb6d349a5
 end
