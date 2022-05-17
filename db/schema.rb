@@ -10,28 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2022_05_14_171603) do
+ActiveRecord::Schema.define(version: 2022_05_17_072322) do
 
   create_table "answers", force: :cascade do |t|
     t.string "body"
-    t.string "user"
+    t.string "user", null: false
     t.boolean "correct"
-    t.integer "id_question"
+    t.integer "id_question", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "category_name"
-    t.integer "level"
+    t.string "category_name", null: false
+    t.integer "level", null: false
     t.integer "id_test"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "body"
+    t.string "body", null: false
     t.string "correct_answer"
     t.integer "id_test"
     t.datetime "created_at", precision: 6, null: false
@@ -40,27 +39,18 @@ ActiveRecord::Schema.define(version: 2022_05_14_171603) do
 
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
-=======
-ActiveRecord::Schema.define(version: 2022_05_04_193230) do
-
-  create_table "tests", force: :cascade do |t|
-    t.string "title"
->>>>>>> ab0fcb37b413fd517d0c8c9d16c2455eb6d349a5
     t.integer "level"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-<<<<<<< HEAD
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
-    t.string "email"
+    t.string "email", null: false
     t.string "type"
     t.integer "score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-=======
->>>>>>> ab0fcb37b413fd517d0c8c9d16c2455eb6d349a5
 end
