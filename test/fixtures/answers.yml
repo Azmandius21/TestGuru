@@ -1,13 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  body: MyString
-  user: MyString
+  body: MyText
   correct: false
-  id_question: 1
 
 two:
-  body: MyString
-  user: MyString
+  body: MyText
   correct: false
-  id_question: 1

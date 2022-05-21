@@ -1,11 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  category_name: MyString
-  level: 1
-  id_test: 1
+  title: MyString
+  text: MyString
 
 two:
-  category_name: MyString
-  level: 1
-  id_test: 1
+  title: MyString
+  text: MyString
