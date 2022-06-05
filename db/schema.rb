@@ -16,8 +16,10 @@ ActiveRecord::Schema.define(version: 2022_05_20_191735) do
     t.text "body", null: false
     t.boolean "correct", default: false, null: false
     t.integer "question_id", null: false
+    t.integer "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_answers_on_author_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
@@ -38,12 +40,12 @@ ActiveRecord::Schema.define(version: 2022_05_20_191735) do
   create_table "tests", force: :cascade do |t|
     t.text "title", null: false
     t.integer "level", default: 1, null: false
-    t.integer "categories_id", null: false
+    t.integer "category_id", null: false
     t.integer "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_tests_on_author_id"
-    t.index ["categories_id"], name: "index_tests_on_categories_id"
+    t.index ["category_id"], name: "index_tests_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,6 +58,6 @@ ActiveRecord::Schema.define(version: 2022_05_20_191735) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
-  add_foreign_key "tests", "categories", column: "categories_id"
+  add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
 end
