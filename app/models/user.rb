@@ -4,4 +4,8 @@ class User < ApplicationRecord
     tests_id = Question.where(id: questions_id).pluck(:test_id).uniq
     pp Test.where(id: tests_id).where(level:tests_level)
   end
+
+  def list_passed_tests(level)
+    
+  end
 end
