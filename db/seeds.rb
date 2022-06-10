@@ -5,45 +5,44 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "seeding..."
+
+User.destroy_all
+Category.destroy_all
+Test.destroy_all
+Question.destroy_all
+Answer.destroy_all
+
 user_names = %w(Anna Ivan Gleb Anton Kate Boris)
-category_titles = %w(Backend Frontend Mobile\ Development)
-test_titles = %w(Ruby HTML Ruby\ on\ Rails CSS Eclips)
-answer_bodies = %w(1995 1993 2004 1996 2001)
+category_titles = %w(backend frontend mobile_development)
+test_titles = { backend: %w(Ruby Ruby\ on\ Rails),
+                frontend: %w(HTML CSS),
+                mobile_development: %w(Java Kotlin) }
+question_bodies =%w(What\ is When\ was\ founded)
 
-users_array = user_names.length.times do |index|
-                User.create!(name: user_names[index-1], email:'#{name[index-1]}@mail.ru')
-              end
-# User.create([{name: 'Anna', email: 'anna@mail.ru'},
-#              {name: 'Ivan', email: 'ivan@mail.ru'},
-#              {name: 'Gleb', email: 'gleb@mail.ru'}])
+#create Users
+user_names.map{|name| User.find_or_create_by!(name: name, email: "#{name}@mail.ru")}
+users = User.all
+#create Categories
+category_titles.map{|title| Category.find_or_create_by!(title: title)}
 
-categories_array = Category.create!([{ title: 'Backend' },
-                                    { title: 'Frontend' },
-                                    { title: 'Mobile development' }])
+#create Tests
+Category.all.each do |category|
+  title = test_titles[category.title.to_sym].sample
+  3.times{Test.create!(title: title, category_id: category.id, author_id: users.first.id)}
+end
 
-tests_array = Test.create!([{ title: "Ruby", category_id: Category.find_by!(title: 'Backend').id, author_id: users_array[rand(5)].id },
-                           { title: "HTML", category_id: Category.find_by!(title: 'Frontend').id, author_id: users_array[rand(5)].id },
-                           { title: "Ruby on Rails", category_id: Category.find_by!(title: 'Backend').id, author_id: users_array[rand(5)].id },
-                           { title: "CSS", category_id: Category.find_by!(title: 'Frontend').id, author_id: users_array[rand(5)].id },
-                           { title: "Eclips", category_id: Category.find_by!(title: 'Mobile development').id, author_id: users_array[rand(5)].id  },
-                           { title: "Ruby", level: 2, category_id: Category.find_by!(title: 'Backend').id, author_id: users_array[rand(5)].id }])
+#create Questions
+Test.all.each do |test|
+  Question.create!(body: "#{question_bodies.sample} #{test.title} ", test_id: test.id )
+end
 
-questions_array = 5.times do |index|
-                    Question.create!(body: "When #{tests_titles[index-1]} was founded?", test_id: Test.find_by!(title: tests_titles[index-1]).id )
-                  end
-                                    # { body: "When HTML was founded?", test_id: 2 },
-                                    # { body: "When Rails was founded?", test_id: 3 },
-                                    # { body: "When CSS was founded?", test_id: 4 },
-                                    # { body: "When Eclips was founded?", test_id: 5 },
-                                    # { body: "Who is Yukihiro Matsumoto", test_id: 6 }])
+#create Answers
+Question.all.each_with_index do |question,index|
+  Answer.create!( body:"answer #{index}", correct: true, question_id: question.id, author_id: users.sample.id )
+end
 
-answers_array = 5.times do |index|
-                  Answer.create!( body:answer_bodies[index-1], correct: true, question_id: questions_array[index-1].id, author_id: users_array[rand(6)].id )
-                end
-                                # { body:"1993", correct: true, question_id: 2, author_id: 2 },
-                                # { body:"2004", correct: true, question_id: 3, author_id: 2 },
-                                # { body:"1996", correct: true, question_id: 4, author_id: 2 },
-                                # { body:"1996", correct: true, question_id: 4, author_id: 1 },
-                                # { body:"1996", correct: true, question_id: 4, author_id: 3 },
-                                # { body:"2001", correct: true, question_id: 5, author_id: 2 },
-                                # { body:"Author Ruby", correct: true, question_id: 6, author_id: 3 }])
+puts "seeding done"
+print "created: "
+[User, Category, Test, Question, Answer].each {|klass| print "#{klass.count} #{klass.to_s} "}
+puts "\n"
