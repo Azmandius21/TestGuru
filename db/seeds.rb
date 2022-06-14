@@ -28,8 +28,10 @@ category_titles.map{|title| Category.find_or_create_by!(title: title)}
 
 #create Tests
 Category.all.each do |category|
-  title = test_titles[category.title.to_sym].sample
-  3.times{Test.create!(title: title, category_id: category.id, author_id: users.first.id)}
+  2.times do |index|
+    title = test_titles[category.title.to_sym].fetch(index -1)
+    3.times{Test.create!(title: title, category_id: category.id, level: rand(1..3), author_id: users.first.id)}
+  end
 end
 
 #create Questions

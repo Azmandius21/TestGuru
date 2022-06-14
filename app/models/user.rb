@@ -1,11 +1,7 @@
 class User < ApplicationRecord
-  def tests_level(tests_level)
-    questions_id = Answer.where(author_id: self.id).pluck(:question_id)
-    tests_id = Question.where(id: questions_id).pluck(:test_id).uniq
-    pp Test.where(id: tests_id).where(level:tests_level)
-  end
 
-  def list_passed_tests(level)
-    
+  def show_passed_tests(level=1)
+    Test.joins("JOIN questions ON tests.id = questions.test_id JOIN answers ON questions.id = answers.question_id
+      WHERE answers.author_id = #{self.id} AND  tests.level = #{level}")
   end
 end
