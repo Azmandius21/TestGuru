@@ -1,8 +1,9 @@
 class Test < ApplicationRecord
 
   def self.sort_desc_current_category(category)
-    #self.joins(:category).where(category_id: Category.find_by(title: category).id).order(title: :desc).pluck(:title)
-    self.joins("JOIN categories ON tests.category_id = categories.id
-      WHERE categories.title = '#{category}'").pluck(:title).sort.reverse!
+    joins('JOIN categories ON tests.category_id = categories.id')
+    .where('categories.title = :category', category: category)
+    .order('tests.title DESC')
+    .pluck('tests.title')
   end
 end
