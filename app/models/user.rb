@@ -5,7 +5,7 @@ class User < ApplicationRecord
                 ON tests.id = questions.test_id
                 JOIN answers
                 ON questions.id = answers.question_id')
-        .where('answers.author_id =?', self.id)
-        .where('tests.level = ?', level)
+          .where(answers: {author_id: self.id})
+          .where(tests: {level: level})
   end
 end
