@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+  has_many :tests
+  has_many :answers
+
   def show_passed_tests(level=1)
     Test.joins('JOIN questions
                 ON tests.id = questions.test_id
