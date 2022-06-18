@@ -7,9 +7,6 @@ class Test < ApplicationRecord
   has_many :users, through: :tests_users
 
   def self.sort_desc_current_category(title_category)
-    joins('JOIN categories ON tests.category_id = categories.id')
-      .where(categories: {title: title_category })
-      .order('tests.title DESC')
-      .pluck('tests.title')
+    joins(:category).where(categories: {title: title_category}).order(title: :DESC).pluck(:title)
   end
 end
