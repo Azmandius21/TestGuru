@@ -12,6 +12,7 @@ Category.destroy_all
 Test.destroy_all
 Question.destroy_all
 Answer.destroy_all
+TestsUser.destroy_all
 
 user_names = %w(Anna Ivan Gleb Anton Kate Boris)
 category_titles = %w(backend frontend mobile_development)
@@ -41,8 +42,11 @@ end
 
 #create Answers
 Question.all.each_with_index do |question,index|
-  Answer.create!( body:"answer #{index}", correct: true, question_id: question.id, author_id: users.sample.id )
+  Answer.create!( body:"answer #{index}", correct: true, question_id: question.id )
 end
+
+#create TestsUser
+User.first.tests.push(Test.first)
 
 puts "seeding done"
 print "created: "
