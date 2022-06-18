@@ -50,7 +50,6 @@ end
 #create TestsUser
 tests.length.times do |index|
   TestsUser.create!(user: users[3], test: tests[index])
-  #users[3].tests.push(tests[index])
 end
 
 
