@@ -21,6 +21,7 @@ question_bodies =%w(What\ is When\ was\ founded)
 
 #create Users
 user_names.map{|name| User.find_or_create_by!(name: name, email: "#{name}@mail.ru")}
+
 users = User.all
 
 
@@ -28,12 +29,16 @@ users = User.all
 3.times do |index|
    Category.create!(title: category_titles[index-1])
 end
+
 categories = Category.all
 
 #create Tests
-3.times do |index|
-  users[0].created_tests.create!(title: test_titles.fetch(index-1).sample, category: categories[index-1], level: rand(1..3))
+5.times do
+  3.times do |index|
+    users[0].created_tests.create!(title: test_titles.fetch(index-1).sample, category: categories[index-1], level: rand(1..10))
+  end
 end
+
 tests = Test.all
 
 #create Questions
@@ -44,7 +49,7 @@ end
 
 #create Answers
 Question.all.each_with_index do |question,index|
-  question.answers.create!(body:"answer #{index}", correct: true,)
+  3.times {question.answers.create!(body:"answer #{index}", correct: true)}
 end
 
 #create TestsUser
