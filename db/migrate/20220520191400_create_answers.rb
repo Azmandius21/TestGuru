@@ -5,7 +5,6 @@ class CreateAnswers < ActiveRecord::Migration[6.0]
       t.boolean :correct, null: false, default: false
 
       t.references :question, null: false, foreign_key: true
-      t.references :author, null: false, forign_key: {to_table: :users}
 
       t.timestamps
     end

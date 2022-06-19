@@ -1,11 +1,9 @@
 class User < ApplicationRecord
+  has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
+  has_many :tests_users, dependent: :destroy
+  has_many :tests, through: :tests_users
 
   def show_passed_tests(level=1)
-    Test.joins('JOIN questions
-                ON tests.id = questions.test_id
-                JOIN answers
-                ON questions.id = answers.question_id')
-          .where(answers: {author_id: self.id})
-          .where(tests: {level: level})
+    self.tests.where(level: level)
   end
 end

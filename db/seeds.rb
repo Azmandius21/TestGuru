@@ -12,38 +12,48 @@ Category.destroy_all
 Test.destroy_all
 Question.destroy_all
 Answer.destroy_all
+TestsUser.destroy_all
 
 user_names = %w(Anna Ivan Gleb Anton Kate Boris)
-category_titles = %w(backend frontend mobile_development)
-test_titles = { backend: %w(Ruby Ruby\ on\ Rails),
-                frontend: %w(HTML CSS),
-                mobile_development: %w(Java Kotlin) }
+category_titles = %w(backend frontend mobile\ development)
+test_titles =  [%w(Ruby Ruby\ on\ Rails Python), %w(HTML CSS JavaScript), %w(Java Kotlin C++)]
 question_bodies =%w(What\ is When\ was\ founded)
 
 #create Users
 user_names.map{|name| User.find_or_create_by!(name: name, email: "#{name}@mail.ru")}
 users = User.all
+
+
 #create Categories
-category_titles.map{|title| Category.find_or_create_by!(title: title)}
+3.times do |index|
+   Category.create!(title: category_titles[index-1])
+end
+categories = Category.all
 
 #create Tests
-Category.all.each do |category|
-  2.times do |index|
-    title = test_titles[category.title.to_sym].fetch(index -1)
-    3.times{Test.create!(title: title, category_id: category.id, level: rand(1..3), author_id: users.first.id)}
-  end
+3.times do |index|
+  users[0].created_tests.create!(title: test_titles.fetch(index-1).sample, category: categories[index-1], level: rand(1..3))
 end
+tests = Test.all
 
 #create Questions
-Test.all.each do |test|
-  Question.create!(body: "#{question_bodies.sample} #{test.title} ", test_id: test.id )
+tests.each do |test|
+  test.questions.create!(body: "#{question_bodies.sample} #{test.title} ")
 end
+
 
 #create Answers
 Question.all.each_with_index do |question,index|
-  Answer.create!( body:"answer #{index}", correct: true, question_id: question.id, author_id: users.sample.id )
+  question.answers.create!(body:"answer #{index}", correct: true,)
 end
 
+#create TestsUser
+tests.length.times do |index|
+  TestsUser.create!(user: users[3], test: tests[index])
+end
+
+
+#INFO
 puts "seeding done"
 print "created: "
 [User, Category, Test, Question, Answer].each {|klass| print "#{klass.count} #{klass.to_s} "}
