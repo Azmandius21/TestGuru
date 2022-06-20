@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   scope :list_passed_tests, -> (user_id, level=1){ find(user_id).tests.where(level: level) }
 
+  validates :email, presence: true
+
   def show_passed_tests(level=1)
     self.tests.where(level: level)
   end

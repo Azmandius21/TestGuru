@@ -33,12 +33,13 @@ end
 categories = Category.all
 
 #create Tests
-5.times do
-  3.times do |index|
-    users[0].created_tests.create!(title: test_titles.fetch(index-1).sample, category: categories[index-1], level: rand(1..10))
-  end
-end
-
+# 5.times do
+#   3.times do |index|
+#     users[0].created_tests.create!(title: test_titles.fetch(index-1).fetch(index-1), category: categories[index-1], level: rand(1..10))
+#   end
+# end
+users[0].created_tests.create!( [{title: "Ruby", level: 1, category_id: 1},
+                                {title: "HTML", level: 1, category_id: 2}])
 tests = Test.all
 
 #create Questions
