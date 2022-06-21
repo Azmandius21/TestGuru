@@ -11,8 +11,9 @@ class Test < ApplicationRecord
   scope :hard, -> { where(level: 5..Float::INFINITY) }
   scope :sort_current_category, -> (title_category){ joins(:category).where(categories: {title: title_category}).order(title: :DESC).pluck(:title) }
 
-  validates :title, presence: true
-  
+  validates :title, presence: true,
+                    uniqueness: { scope: [:title, :level]}
+  validates :level, numericality: { only_integer: true }
 
   def self.sort_desc_current_category(title_category)
     joins(:category).where(categories: {title: title_category}).order(title: :DESC).pluck(:title)
