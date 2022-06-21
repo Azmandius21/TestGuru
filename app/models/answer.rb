@@ -4,12 +4,11 @@ class Answer < ApplicationRecord
   scope :right, ->{where(correct: true)}
 
   validates :body, presence: true
-  validate :validate_limit_answer_on_question
+  validate :validate_quantity_answer
 
   private
 
-  def validate_limit_answer_on_question
-    num_answ_on_one_quest = Answer.where(question_id: self.question_id).count
-    errors.add :base, :invalid, message: "Question can have no more 4 answers" if num_answ_on_one_quest >= 4 
+  def validate_quantity_answer
+    errors.add :quantity, message: "Question can have no more 4 answers" if question.answers.count >= 4
   end
 end
