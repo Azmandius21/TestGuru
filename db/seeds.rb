@@ -50,7 +50,7 @@ end
 
 #create Answers
 Question.all.each_with_index do |question,index|
-  3.times {question.answers.create!(body:"answer #{index}", correct: true)}
+  4.times {question.answers.create!(body:"answer #{index}", correct: true)}
 end
 
 #create TestsUser
