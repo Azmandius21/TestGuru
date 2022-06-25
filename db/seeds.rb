@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "seeding..."
+
+puts 'seeding...'
 
 User.destroy_all
 Category.destroy_all
@@ -14,47 +15,65 @@ Question.destroy_all
 Answer.destroy_all
 TestsUser.destroy_all
 
-user_names = %w(Anna Ivan Gleb Anton Kate Boris)
-category_titles = %w(backend frontend mobile\ development)
-test_titles =  [%w(Ruby Ruby\ on\ Rails Python), %w(HTML CSS JavaScript), %w(Java Kotlin C++)]
-question_bodies =%w(What\ is When\ was\ founded)
+user_names = %w[Anna Ivan Gleb Anton Kate Boris]
+category_titles = ['backend', 'frontend', 'mobile development']
+test_titles = [['Ruby', 'Ruby on Rails', 'Python'],
+               %w[HTML CSS JavaScript],
+               %w[Java Kotlin C++]]
+question_bodies = ['What is', 'When was founded']
 
-#create Users
-user_names.map{|name| User.find_or_create_by!(name: name, email: "#{name}@mail.ru")}
-users = User.all
+# create Users
+users_array = []
+user_names.map { |name| users_array << User.find_or_create_by!(name: name, email: "#{name}@mail.ru") }
 
-
-#create Categories
-3.times do |index|
-   Category.create!(title: category_titles[index-1])
-end
-categories = Category.all
-
-#create Tests
-3.times do |index|
-  users[0].created_tests.create!(title: test_titles.fetch(index-1).sample, category: categories[index-1], level: rand(1..3))
-end
-tests = Test.all
-
-#create Questions
-tests.each do |test|
-  test.questions.create!(body: "#{question_bodies.sample} #{test.title} ")
+# create Categories
+categories_array = []
+category_titles.each do |title|
+  categories_array << Category.create!(title: title)
 end
 
+# create Tests
+tests_array = []
+tests_array << users_array[0].created_tests.create!(
+  [{ title: test_titles[0][0], level: 1, category: categories_array[0] },
+   { title: test_titles[0][1], level: 1, category: categories_array[0] },
+   { title: test_titles[0][2], level: 1, category: categories_array[0] },
+   { title: test_titles[1][0], level: 1, category: categories_array[1] },
+   { title: test_titles[1][1], level: 1, category: categories_array[1] },
+   { title: test_titles[1][2], level: 1, category: categories_array[1] },
+   { title: test_titles[2][0], level: 1, category: categories_array[2] },
+   { title: test_titles[2][1], level: 1, category: categories_array[2] },
+   { title: test_titles[2][2], level: 1, category: categories_array[2] }]
+)
+tests_array = tests_array.flatten
 
-#create Answers
-Question.all.each_with_index do |question,index|
-  question.answers.create!(body:"answer #{index}", correct: true,)
+# create Questions
+questions_array = []
+tests_array.each do |test|
+  questions_array << test.questions.create!(body: "#{question_bodies.sample} #{test.title} ")
 end
 
-#create TestsUser
-tests.length.times do |index|
-  TestsUser.create!(user: users[3], test: tests[index])
+# create Answers
+answers_array = []
+questions_array.each do |question|
+  answers_array << question.answers.create!(
+    [{ body: 'answer 1', correct: false },
+     { body: 'answer 2', correct: true },
+     { body: 'answer 3', correct: false },
+     { body: 'answer 4', correct: true }]
+  )
 end
+answers_array = answers_array.flatten
 
+# create TestsUser
+TestsUser.create!([{ user: users_array[3], test: tests_array[0] },
+                   { user: users_array[3], test: tests_array[1] },
+                   { user: users_array[1], test: tests_array[0] },
+                   { user: users_array[1], test: tests_array[1] }])
 
-#INFO
-puts "seeding done"
-print "created: "
-[User, Category, Test, Question, Answer].each {|klass| print "#{klass.count} #{klass.to_s} "}
+# INFO
+puts 'seeding done'
+print 'created: '
+[User, Category, Test, Question, Answer, TestsUser]
+  .each { |klass| print "#{klass.count} #{klass} " }
 puts "\n"
