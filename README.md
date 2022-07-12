@@ -5,9 +5,9 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version 2.7.5p203
+* Ruby version
 
-* System dependencies 
+* System dependencies
 
 * Configuration
 
@@ -21,4 +21,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* Список сущностей: пользователь, категория, тест, вопрос, ответ
+* ...
