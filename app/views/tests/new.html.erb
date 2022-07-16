@@ -1,4 +1,4 @@
-<h1>Create New Test</h1>
+<h1>Create New Test </h1>
 
 <form action="/tests" method="post" >
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
@@ -9,8 +9,8 @@
   </p>
 
   <p>
-    <label for="test-level">Level</label>
-    <input type="text" name="test[category]" id="test-level">
+    <label for="test-category_id">Category</label>
+    <input type="text" name="test[category_id]" id="test-category_id">
   </p>
 
   <input type="submit" value="Create">

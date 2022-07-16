@@ -1,11 +1,25 @@
 class TestsController < ApplicationController
-  def new
+rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+  def index
+    @test = Test.all
+    render plain: @test.inspect
+  end
 
+  def show
+    @test = Test.find(params[:id])
   end
 
   def create
-    result = ["Class: #{params.class}", "Params: #{params.inspect}"]
+    @test = Test.create(test_params)
+  end
 
-    render plain: result.join("\n")
+  private
+
+  def test_params
+    params.require(:test).permit( :title, :level )
+  end
+
+  def rescue_with_test_not_found
+    render plain: "Test was not found"
   end
 end
