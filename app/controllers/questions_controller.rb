@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    render json: { questions: Question.find(params[:id].to_i)}
+    render json: { questions: Question.find(params[:id])}
   end
 
   def new
@@ -16,11 +16,16 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = @test.questions.create(question_params)
+    @question = @test.questions.build(question_params)
+    if @question.save
+      redirect_to @question
+    else
+      render :new
+    end
   end
 
   def destroy
-    @question = Question.destroy(params[:id])
+    @question = Question.find(params[:id])
     @question.destroy
     render plain: "The question with #{params[:id]} id is delited"
   end
