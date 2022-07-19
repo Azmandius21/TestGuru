@@ -1,12 +1,13 @@
 class QuestionsController < ApplicationController
   before_action :find_test
+
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+
   def index
     render json: {quiestions: Question.all}
   end
 
   def show
-    #byebug
     render json: { questions: Question.find(params[:id].to_i)}
   end
 
@@ -15,9 +16,13 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    #@question = @test.questions.create(question_params)
-    render plain: "Hello!"
+    @question = @test.questions.create(question_params)
+  end
 
+  def destroy
+    @question = Question.destroy(params[:id])
+    @question.destroy
+    render plain: "The question with #{params[:id]} id is delited"
   end
 
   private
