@@ -6,13 +6,9 @@ class QuestionsController < ApplicationController
 
   def index
     render json: {quiestions: Question.all}
-    #redirect_to @test
-
   end
 
-  def show
-    
-  end
+  def show; end
 
   def new
     @question = @test.questions.new
