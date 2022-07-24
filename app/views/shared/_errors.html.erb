@@ -1,4 +1,12 @@
 <% if resource.errors.present? %>
   <div>
-    <%= 'Errors detected' %>
+    <h2>Errors detected!</h2>
+    <h3><%= pluralize(resource.errors.count, 'error') %></h3>
+
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
+<% end %>

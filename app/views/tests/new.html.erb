@@ -1,18 +1,8 @@
 <h1>Create new test</h1>
 
 <%= form_with model:@test, local: true, data:{ turbo: false } do |f| %>
-  <% if @test.errors.present? %>
-    <div>
-      <h2>Errors detected!</h2>
-      <h3><%= pluralize(@test.errors.count, 'error') %> detected:</h3>
-      
-      <ul>
-        <% @test.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+
+  <%= render '/shared/errors', resource: @test
 
   <p>
     <%= f.label :title %> <br>
