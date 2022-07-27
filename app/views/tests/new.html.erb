@@ -2,11 +2,11 @@
 
 <%= form_with model:@test, local: true, data:{ turbo: false } do |f| %>
 
-  <%= render '/shared/errors', resource: @test
+  <%= render '/shared/errors', resource: @test %>
 
   <p>
-    <%= f.label :title %> <br>
-    <%=f.text_field :title %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
   </p>
 
   <p>
@@ -21,3 +21,5 @@
 
   <p><%= f.submit %></p>
 <% end %>
+
+<%= link_to "Back", tests_path %>
