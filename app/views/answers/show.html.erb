@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<p>
+  <b>Question:</b>
+  <%= @answer.question.body %>
+</p>
+
+<p>
+  <b>Answer:</b>
+  <%= @answer.body %>
+</p>
+
+<p>
+  <b>Correct:</b>
+  <%= @answer.correct %>
+</p>
+
+
+<div>
+  <%= link_to "Edit this answer", edit_answer_path(@answer) %> |
+  <%= link_to "Back to answers", question_path(@answer.question) %>
+
+  <p>
+    <%= button_to "Destroy this answer", @answer, method: :delete %>
+  </p>
+</div>
