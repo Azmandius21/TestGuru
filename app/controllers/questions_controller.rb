@@ -36,6 +36,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     render plain: "The question with #{params[:id]} id is delited"
+    redirect_to test_path(@question.test_id)
   end
 
   private

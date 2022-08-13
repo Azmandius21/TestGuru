@@ -16,7 +16,7 @@ class AnswersController < ApplicationController
 
 
   def create
-    @answer = Answer.new(answer_params)
+    @answer = @question.answers.new(answer_params)
 
     if @answer.save
       redirect_to @answer, notice: "Answer was successfully created."
@@ -46,6 +46,7 @@ class AnswersController < ApplicationController
     def find_question
       @question = Question.find(params[:question_id])
     end
+
     def set_answer
       @answer = Answer.find(params[:id])
     end

@@ -1,6 +1,7 @@
 <%= turbo_frame_tag @test_passage do %>
   <h1>Passing the <%= @test_passage.test.title %> Test</h1>
-
+  <p>Namber of test's questions: <%= @test_passage.test.questions.count %></p>
+  
   <b>Current Question:  <%= @test_passage.current_question.body %> <%= @test_passage.current_question.id %> </b>
 
   <%= form_with  url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
