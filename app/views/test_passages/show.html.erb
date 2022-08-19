@@ -2,17 +2,17 @@
 
 <p>
   <strong>User:</strong>
-  <%= @test_passage.user %>
+  <%= @test_passage.user.name %>
 </p>
 
 <p>
   <strong>Test:</strong>
-  <%= @test_passage.test %>
+  <%= @test_passage.test.title %>
 </p>
 
 <p>
   <strong>Current question:</strong>
-  <%= @test_passage.current_question %>
+  <%= @test_passage.current_question.id %>
 </p>
 
 <p>
@@ -20,5 +20,4 @@
   <%= @test_passage.correct_questions %>
 </p>
 
-<%= link_to 'Edit', edit_test_passage_path(@test_passage) %> |
-<%= link_to 'Back', test_passages_path %>
+<%= link_to 'Back', tests_path %>
