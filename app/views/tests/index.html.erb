@@ -1,13 +1,16 @@
 <h1>Tricky Tests</h1>
 
-<%= link_to "New test", new_test_path %>
 <table>
   <tr>
     <th>Title</th>
     <th>Level</th>
-    <th colspan="4">Actions</th>
+    <th colspan="4"></th>
   </tr>
 
   <%= render @tests %>
 
 </table>
+
+<br>
+
+<%= link_to 'New Test', new_test_path %>

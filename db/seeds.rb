@@ -13,7 +13,7 @@ Category.destroy_all
 Test.destroy_all
 Question.destroy_all
 Answer.destroy_all
-TestsUser.destroy_all
+TestPassage.destroy_all
 
 user_names = %w[Anna Ivan Gleb Anton Kate Boris]
 category_titles = ['backend', 'frontend', 'mobile development']
@@ -66,14 +66,11 @@ end
 answers_array = answers_array.flatten
 
 # create TestsUser
-TestsUser.create!([{ user: users_array[3], test: tests_array[0] },
-                   { user: users_array[3], test: tests_array[1] },
-                   { user: users_array[1], test: tests_array[0] },
-                   { user: users_array[1], test: tests_array[1] }])
+TestPassage.create!(user_id: 1, test_id: 1, current_question_id: 1)
 
 # INFO
 puts 'seeding done'
 print 'created: '
-[User, Category, Test, Question, Answer, TestsUser]
+[User, Category, Test, Question, Answer, TestPassage]
   .each { |klass| print "#{klass.count} #{klass} " }
 puts "\n"

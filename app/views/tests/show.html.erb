@@ -1,22 +1,14 @@
+<p id="notice"><%= notice %></p>
+
 <p>
-  <strong>Title: </strong>
+  <strong>Title:</strong>
   <%= @test.title %>
 </p>
 
 <p>
-  <strong>Level: </strong>
+  <strong>Level:</strong>
   <%= @test.level %>
 </p>
 
-<%= link_to "Edit", edit_test_path %>
-<%= link_to "Back", tests_path %>
-
-<h3>Questions of this test: </h3>
-
-<table>
-  <th>id</th>
-  <th colspan=3 >Actions</th>
-
-  <%= render @test.questions %>
-
-</table>
+<%= link_to 'Edit', edit_test_path(@test) %> |
+<%= link_to 'Back', tests_path %>

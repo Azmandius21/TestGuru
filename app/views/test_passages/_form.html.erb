@@ -1,0 +1,29 @@
+<%= form_with(model: test_passage, local: true) do |form| %>
+  <% if test_passage.errors.any? %>
+    <%= render '/shared/errors', resource: @test_passage %>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :test_id %>
+    <%= form.text_field :test_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current_question_id %>
+    <%= form.text_field :current_question_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :correct_questions %>
+    <%= form.number_field :correct_questions %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

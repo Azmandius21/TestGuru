@@ -1,26 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <p>
-  <b>Question:</b>
-  <%= @answer.question.body %>
-</p>
-
-<p>
-  <b>Answer:</b>
+  <strong>Body:</strong>
   <%= @answer.body %>
 </p>
 
 <p>
-  <b>Correct:</b>
+  <strong>Correct:</strong>
   <%= @answer.correct %>
 </p>
 
+<p>
+  <strong>Questioin:</strong>
+  <%= @answer.questioin_id %>
+</p>
 
-<div>
-  <%= link_to "Edit this answer", edit_answer_path(@answer) %> |
-  <%= link_to "Back to answers", question_path(@answer.question) %>
-
-  <p>
-    <%= button_to "Destroy this answer", @answer, method: :delete %>
-  </p>
-</div>
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>

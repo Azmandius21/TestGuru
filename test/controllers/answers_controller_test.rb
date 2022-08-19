@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class AnswersControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,8 +16,8 @@ class AnswersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create answer" do
-    assert_difference("Answer.count") do
-      post answers_url, params: { answer: {  } }
+    assert_difference('Answer.count') do
+      post answers_url, params: { answer: { body: @answer.body, correct: @answer.correct, questioin_id: @answer.questioin_id } }
     end
 
     assert_redirected_to answer_url(Answer.last)
@@ -34,12 +34,12 @@ class AnswersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update answer" do
-    patch answer_url(@answer), params: { answer: {  } }
+    patch answer_url(@answer), params: { answer: { body: @answer.body, correct: @answer.correct, questioin_id: @answer.questioin_id } }
     assert_redirected_to answer_url(@answer)
   end
 
   test "should destroy answer" do
-    assert_difference("Answer.count", -1) do
+    assert_difference('Answer.count', -1) do
       delete answer_url(@answer)
     end
 

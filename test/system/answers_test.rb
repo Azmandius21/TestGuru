@@ -10,29 +10,37 @@ class AnswersTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Answers"
   end
 
-  test "should create answer" do
+  test "creating a Answer" do
     visit answers_url
-    click_on "New answer"
+    click_on "New Answer"
 
+    fill_in "Body", with: @answer.body
+    check "Correct" if @answer.correct
+    fill_in "Questioin", with: @answer.questioin_id
     click_on "Create Answer"
 
     assert_text "Answer was successfully created"
     click_on "Back"
   end
 
-  test "should update Answer" do
-    visit answer_url(@answer)
-    click_on "Edit this answer", match: :first
+  test "updating a Answer" do
+    visit answers_url
+    click_on "Edit", match: :first
 
+    fill_in "Body", with: @answer.body
+    check "Correct" if @answer.correct
+    fill_in "Questioin", with: @answer.questioin_id
     click_on "Update Answer"
 
     assert_text "Answer was successfully updated"
     click_on "Back"
   end
 
-  test "should destroy Answer" do
-    visit answer_url(@answer)
-    click_on "Destroy this answer", match: :first
+  test "destroying a Answer" do
+    visit answers_url
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
 
     assert_text "Answer was successfully destroyed"
   end
