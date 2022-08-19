@@ -1,70 +1,59 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: %i[ show edit update destroy ]
 
-  # GET /tests or /tests.json
+  before_action :find_test, except: %i[ index new create ]
+  before_action :find_user, only: :start
+
   def index
     @tests = Test.all
   end
 
-  # GET /tests/1 or /tests/1.json
-  def show
-  end
+  def show; end
 
-  # GET /tests/new
   def new
     @test = Test.new
   end
 
-  # GET /tests/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /tests or /tests.json
   def create
     @test = Test.new(test_params)
 
-    respond_to do |format|
-      if @test.save
-        format.html { redirect_to test_url(@test), notice: "Test was successfully created." }
-        format.json { render :show, status: :created, location: @test }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @test.errors, status: :unprocessable_entity }
-      end
+    if @test.save
+      redirect_to @test
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /tests/1 or /tests/1.json
   def update
-    respond_to do |format|
-      if @test.update(test_params)
-        format.html { redirect_to test_url(@test), notice: "Test was successfully updated." }
-        format.json { render :show, status: :ok, location: @test }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @test.errors, status: :unprocessable_entity }
-      end
+    if @test.update(test_params)
+      redirect_to @test
+    else
+      render :edit
     end
   end
 
-  # DELETE /tests/1 or /tests/1.json
   def destroy
     @test.destroy
+    redirect_to tests_path
+  end
 
-    respond_to do |format|
-      format.html { redirect_to tests_url, notice: "Test was successfully destroyed." }
-      format.json { head :no_content }
-    end
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_test
-      @test = Test.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def test_params
-      params.require(:test).permit(:title, :level)
-    end
+  def find_test
+    @test = Test.find(params[:id])
+  end
+
+  def find_user
+    @user = User.first
+  end
+
+  def test_params
+    params.require(:test).permit( :title, :level, :category_id)
+  end
 end

@@ -13,7 +13,7 @@
     <%= form.number_field :level %>
   </div>
 
-  <div class="collection">
+  <div class="field">
     <%= form.label :category_id %>
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </div>

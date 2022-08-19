@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :tests do
     resources :questions, shallow: true, except: :index do
-      resources :anwswers, shallow: true, except: :index
+      resources :answers, shallow: true, except: :index
     end
 
     member do
