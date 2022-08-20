@@ -26,6 +26,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    @question.update(question_params)
     if @question.save
       redirect_to @question
     else
