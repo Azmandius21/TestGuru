@@ -22,7 +22,7 @@ class TestPassage < ApplicationRecord
   end
 
   def progress
-    correct_questions*100/test.questions.count
+    (correct_questions*100/test.questions.count).round
   end
 
   def success?
