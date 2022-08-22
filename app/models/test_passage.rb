@@ -1,9 +1,12 @@
 class TestPassage < ApplicationRecord
+  SUCCESS_RATE = 85.freeze
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
+
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
@@ -16,6 +19,14 @@ class TestPassage < ApplicationRecord
 
   def complited?
     current_question.nil?
+  end
+
+  def progress
+    correct_questions*100/test.questions.count
+  end
+
+  def success?
+    progress >= SUCCESS_RATE
   end
 
   private

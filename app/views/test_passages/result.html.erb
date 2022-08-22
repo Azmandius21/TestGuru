@@ -1,4 +1,8 @@
 <h1>Test complited</h1>
-<h3>You have point: <%= @test_passage.correct_questions %></h3>
+
+<p>You progress is :</p>
+<strong class="<%= detect_class_for_color(@test_passage) %>">
+  <%=@test_passage.progress %> %
+</strong><br>
 
 <%= link_to 'Back to tests', tests_path %>
