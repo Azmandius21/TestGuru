@@ -35,9 +35,9 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    @test = @question.test
     @question.destroy
-    render plain: "The question with #{@qusetion.id} id is delited"
-    redirect_to @question.test
+    redirect_to @test
   end
 
   private

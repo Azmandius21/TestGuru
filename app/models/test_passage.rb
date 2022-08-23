@@ -1,5 +1,5 @@
 class TestPassage < ApplicationRecord
-  SUCCESS_RATE = 85.freeze
+  SUCCESS_RATE = 85
 
   belongs_to :user
   belongs_to :test
@@ -22,7 +22,7 @@ class TestPassage < ApplicationRecord
   end
 
   def progress
-    (correct_questions*100/test.questions.count).round
+    (correct_questions*100/test.questions.count).round(1)
   end
 
   def success?
