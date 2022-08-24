@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class QuestionsController < ApplicationController
   before_action :find_test, only: %i[new create index]
-  before_action :find_question,  only: %i[show destroy edit update]
+  before_action :find_question, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -26,6 +28,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    @question.update(question_params)
     if @question.save
       redirect_to @question
     else
@@ -34,8 +37,9 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    @test = @question.test
     @question.destroy
-    render plain: "The question with #{params[:id]} id is delited"
+    redirect_to @test
   end
 
   private
@@ -53,6 +57,6 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    render plain: "Question was not found"
+    render plain: 'Question was not found'
   end
 end

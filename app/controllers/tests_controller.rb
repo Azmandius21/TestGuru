@@ -1,6 +1,8 @@
-class TestsController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :find_test, except: %i[ index new create ]
+class TestsController < ApplicationController
+  before_action :find_test, except: %i[index new create]
+
   def index
     @tests = Test.all
   end
@@ -36,6 +38,12 @@ class TestsController < ApplicationController
     redirect_to tests_path
   end
 
+  def start
+    @user = User.first
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
+  end
+
   private
 
   def find_test
@@ -43,6 +51,6 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.require(:test).permit( :title, :level, :category_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 end
