@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Test < ApplicationRecord
   belongs_to :author, class_name: 'User'
   belongs_to :category
@@ -10,7 +12,7 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
   scope :sort_current_category,
-    lambda { |title| joins(:category).where(categories: { title: title }).order(title: :DESC)}
+        ->(title) { joins(:category).where(categories: { title: title }).order(title: :DESC) }
 
   validates :title, presence: true,
                     uniqueness: { scope: :level }

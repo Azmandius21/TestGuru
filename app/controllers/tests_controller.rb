@@ -1,5 +1,6 @@
-class TestsController < ApplicationController
+# frozen_string_literal: true
 
+class TestsController < ApplicationController
   before_action :find_test, except: %i[index new create]
 
   def index
@@ -50,6 +51,6 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.require(:test).permit( :title, :level, :category_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 end

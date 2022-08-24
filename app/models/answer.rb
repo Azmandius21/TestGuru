@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class Answer < ApplicationRecord
   belongs_to :question
 
   scope :right, -> { where(correct: true) }
 
   validates :body, presence: true
-  validate :validate_quantity_answer, on: [:update, :create]
+  validate :validate_quantity_answer, on: %i[update create]
 
   private
 

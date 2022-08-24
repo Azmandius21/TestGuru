@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestPassage < ApplicationRecord
   SUCCESS_RATE = 85
 
@@ -5,8 +7,7 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_first_question, on: [:create, :update]
-
+  before_validation :before_validation_set_first_question, on: %i[create update]
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
@@ -19,7 +20,7 @@ class TestPassage < ApplicationRecord
   end
 
   def progress
-    (correct_questions*100/test.questions.count.to_f).round(2)
+    (correct_questions * 100 / test.questions.count.to_f).round(2)
   end
 
   def success?

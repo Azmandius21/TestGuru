@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AnswersHelper
   def answer_header(answer)
     if answer.new_record?
