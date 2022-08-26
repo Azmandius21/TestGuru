@@ -1,9 +1,6 @@
 # frozen_string_literal: true
-require 'digest/sha1'
 
 class User < ApplicationRecord
-
-  include Auth
 
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
   has_many :test_passages, dependent: :destroy
