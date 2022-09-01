@@ -4,11 +4,15 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   helper_method :current_user
 
+  helper_method :current_user,
+                :logged_in?
+
   private
 
   def authenticate_user!
     unless current_user
-      redirect_to login_path
+      flash[:alert] = "Ku ku "
+      redirect_to login_path, alert:  'Are you a Guru?'
     end
   end
 
