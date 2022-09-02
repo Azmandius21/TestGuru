@@ -11,3 +11,7 @@
     </ul>
   </div>
 </nav>
+
+<div class="welcome">
+  <%= "Welcome #{current_user.name} Guru" if current_user.present? %>
+</div>

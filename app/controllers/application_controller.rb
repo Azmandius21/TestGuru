@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user
-      flash[:alert] = "Ku ku "
       redirect_to login_path, alert:  'Are you a Guru?'
     end
   end
