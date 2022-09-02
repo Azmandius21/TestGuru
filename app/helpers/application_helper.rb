@@ -11,7 +11,7 @@ module ApplicationHelper
 
   def flash_message(key)
     if flash[key]
-      content_tag :p, flash[key], class: 'flash alert'
+      content_tag :p, flash[key], class: "flash #{key}"
     end
   end
 end
