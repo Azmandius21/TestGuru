@@ -1,10 +1,13 @@
-<div class="navigation">
-  <strong>
+<nav>
+  <div class="nav_title">
+    <%= link_to 'Test Guru', tests_path %>
+  </div>
+
+  <div class="nav_list">
     <ul>
-      <li><%= link_to 'Test Guru', tests_path %></li>
       <li><%= link_to 'Signup', signup_path %></li>
       <li><%= link_to 'Login', login_path %></li>
       <li><%= link_to 'Exit', logout_path, method: :delete %></li>
     </ul>
-  </strong>
-</div>
+  </div>
+</nav>
