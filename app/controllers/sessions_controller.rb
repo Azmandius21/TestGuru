@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
       else
         redirect_to root_path
       end
-      # redirect_to tests_path
     else
       flash.now[:alert] = 'Veryfi email and password'
       render :new
