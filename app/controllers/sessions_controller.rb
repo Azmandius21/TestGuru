@@ -9,7 +9,12 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to tests_path
+      if cookies[:target_page].present?
+        redirect_to cookies[:target_page]
+      else
+        redirect_to root_path
+      end
+      #redirect_to tests_path
     else
       flash.now[:alert] = "Veryfi email and password"
       render :new
