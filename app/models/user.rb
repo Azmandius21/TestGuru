@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  EMAIL_FORMAT = /^[0-9a-z]+[@][0-9a-z]+[.][A-z]{2,3}/.freeze
+  EMAIL_FORMAT = /^[0-9a-z]+@[0-9a-z]+[.][A-z]{2,3}/.freeze
 
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
   has_many :test_passages, dependent: :destroy
@@ -23,6 +23,6 @@ class User < ApplicationRecord
   private
 
   def email_validation
-    errors.add :email_format, message: 'It is not email format' unless self.email =~ EMAIL_FORMAT
+    errors.add :email_format, message: 'It is not email format' unless email =~ EMAIL_FORMAT
   end
 end

@@ -26,7 +26,7 @@ question_bodies = ['What is', 'When was founded']
 
 # create Users
 users_array = []
-user_names.map { |name| users_array << User.find_or_create_by!(name: name, email: "#{name}@mail.ru", ) }
+user_names.map { |name| users_array << User.find_or_create_by!(name: name, email: "#{name}@mail.ru") }
 p "Created #{User.count} Users"
 
 # create Categories
@@ -71,7 +71,6 @@ questions_array.each do |question|
 end
 answers_array = answers_array.flatten
 p "Created #{Answer.count} Answers"
-
 
 # INFO
 puts 'seeding done'

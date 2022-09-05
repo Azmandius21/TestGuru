@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by(email: params[:email])
@@ -14,15 +15,15 @@ class SessionsController < ApplicationController
       else
         redirect_to root_path
       end
-      #redirect_to tests_path
+      # redirect_to tests_path
     else
-      flash.now[:alert] = "Veryfi email and password"
+      flash.now[:alert] = 'Veryfi email and password'
       render :new
     end
   end
 
   def destroy
     session.delete(:user_id)
-    redirect_to login_path, alert: "You have successfully logged out"
+    redirect_to login_path, alert: 'You have successfully logged out'
   end
 end

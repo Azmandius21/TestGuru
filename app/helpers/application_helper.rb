@@ -10,8 +10,6 @@ module ApplicationHelper
   end
 
   def flash_message(key)
-    if flash[key]
-      content_tag :p, flash[key], class: "flash #{key}"
-    end
+    content_tag :p, flash[key], class: "flash #{key}" if flash[key]
   end
 end
