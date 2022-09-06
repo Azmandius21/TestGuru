@@ -27,12 +27,14 @@ question_bodies = ['What is', 'When was founded']
 # create Users
 users_array = []
 user_names.map { |name| users_array << User.find_or_create_by!(name: name, email: "#{name}@mail.ru") }
+p "Created #{User.count} Users"
 
 # create Categories
 categories_array = []
 category_titles.each do |title|
   categories_array << Category.create!(title: title)
 end
+p "Created #{Category.count} Categories"
 
 # create Tests
 tests_array = []
@@ -48,12 +50,14 @@ tests_array << users_array[0].created_tests.create!(
    { title: test_titles[2][2], level: 1, category: categories_array[2] }]
 )
 tests_array = tests_array.flatten
+p "Created #{Test.count} Tests"
 
 # create Questions
 questions_array = []
 tests_array.each do |test|
   questions_array << test.questions.create!(body: "#{question_bodies.sample} #{test.title} ")
 end
+p "Created #{Question.count} Questions"
 
 # create Answers
 answers_array = []
@@ -66,13 +70,7 @@ questions_array.each do |question|
   )
 end
 answers_array = answers_array.flatten
-
-# create TestsUser
-TestPassage.create!(user_id: 1, test_id: 1, current_question_id: 1)
+p "Created #{Answer.count} Answers"
 
 # INFO
 puts 'seeding done'
-print 'created: '
-[User, Category, Test, Question, Answer, TestPassage]
-  .each { |klass| print "#{klass.count} #{klass} " }
-puts "\n"
