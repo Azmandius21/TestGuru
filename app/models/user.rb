@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable
+
   EMAIL_FORMAT = /^[0-9a-z]+@[0-9a-z]+[.][A-z]{2,3}/.freeze
 
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
@@ -9,8 +17,6 @@ class User < ApplicationRecord
 
   validates :email, presence: true
   validate :email_validation, on: :create
-
-  has_secure_password
 
   def show_passed_tests(level = 1)
     tests.where(level: level)
