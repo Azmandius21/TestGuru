@@ -25,9 +25,12 @@ test_titles = [['Ruby', 'Ruby on Rails', 'Python'],
 question_bodies = ['What is', 'When was founded']
 
 # create Users
-users_array = []
-#user_names.map { |name| users_array << User.find_or_create_by!(name: name, email: "#{name}@mail.ru", encrypted_password: "000000") }
-users_array << User.find_or_create_by!(name: "Aziz", email: "kax@mail.ru", encrypted_password: "000000", password_confirmation: "000000")
+params = []
+5.times do |index|
+  params << {name: "#{user_names[index-1]}", email: "#{user_names[index-1]}@mail.ru", password: "000000"}
+end
+users_array = User.create!(params)
+
 p "Created #{User.count} Users"
 
 # create Categories
