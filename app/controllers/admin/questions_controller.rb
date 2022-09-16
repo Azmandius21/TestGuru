@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   before_action :find_test, only: %i[new create index]
   before_action :find_question, only: %i[show destroy edit update]
 
@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
   def update
     @question.update(question_params)
     if @question.save
-      redirect_to @question
+      redirect_to admin_question_path(@question)
     else
       render :edit
     end

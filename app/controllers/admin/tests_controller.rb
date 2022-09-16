@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-class Admin::TestsController < ApplicationController
-  
-  before_action :authenticate_user!
+class Admin::TestsController < Admin::BaseController
+
   before_action :find_test, except: %i[index new create]
 
   def index
@@ -21,7 +20,7 @@ class Admin::TestsController < ApplicationController
     @test = Test.new(test_params)
 
     if @test.save
-      redirect_to @test
+      redirect_to admin_test_path(@test)
     else
       render :new
     end
@@ -29,7 +28,7 @@ class Admin::TestsController < ApplicationController
 
   def update
     if @test.update(test_params)
-      redirect_to @test
+      redirect_to admin_test_path(@test)
     else
       render :edit
     end
