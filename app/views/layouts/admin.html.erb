@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin|TestGuru</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <div class='navigation'>
+    <%= render '/shared/navigation' %>
+  </div>
+
+  <body>
+    <% if user_signed_in? %>
+      <div class="welcome">
+        <%= "Welcome #{current_user.email} Guru" if current_user.present? %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      </div>
+    <% end %>
+
+    <%= render 'shared/flash' %>
+
+    <%= yield %>
+  </body>
