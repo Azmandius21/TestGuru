@@ -26,7 +26,8 @@ question_bodies = ['What is', 'When was founded']
 
 # create Users
 users_array = []
-user_names.map { |name| users_array << User.find_or_create_by!(name: name, email: "#{name}@mail.ru") }
+#user_names.map { |name| users_array << User.find_or_create_by!(name: name, email: "#{name}@mail.ru", encrypted_password: "000000") }
+users_array << User.find_or_create_by!(name: "Aziz", email: "kax@mail.ru", encrypted_password: "000000", password_confirmation: "000000")
 p "Created #{User.count} Users"
 
 # create Categories
