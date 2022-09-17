@@ -27,8 +27,8 @@ question_bodies = ['What is', 'When was founded']
 # create Users
 params = []
 5.times do |index|
-  #params << {name: "#{user_names[index-1]}", email: "#{user_names[index-1]}@mail.ru", password: "000000"}
-  params << {email: "#{user_names[index-1]}@mail.ru", password: "000000"}
+  # params << {name: "#{user_names[index-1]}", email: "#{user_names[index-1]}@mail.ru", password: "000000"}
+  params << { email: "#{user_names[index - 1]}@mail.ru", password: '000000' }
 end
 users_array = User.create!(params)
 

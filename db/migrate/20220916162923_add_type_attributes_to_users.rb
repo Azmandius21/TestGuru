@@ -1,5 +1,6 @@
-class AddTypeAttributesToUsers < ActiveRecord::Migration[5.2]
+# frozen_string_literal: true
 
+class AddTypeAttributesToUsers < ActiveRecord::Migration[5.2]
   def self.up
     change_table :users do |t|
       t.string :type, null: false, default: 'User'

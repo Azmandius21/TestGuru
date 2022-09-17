@@ -5,7 +5,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
     change_table :users do |t|
       ## Database authenticatable
       # t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
       t.string   :reset_password_token
@@ -32,7 +32,6 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps null: false
     end
@@ -49,9 +48,9 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
 
   def self.down
     remove_columns(:users, :encrypted_password, :reset_password_token, :reset_password_sent_at,
-                          :remember_created_at, :confirmation_token, :confirmed_at, :confirmation_sent_at,
-                          :unconfirmed_email, :sign_in_count, :current_sign_in_at, :last_sign_in_at,
-                          :current_sign_in_ip, :last_sign_in_ip)
+                   :remember_created_at, :confirmation_token, :confirmed_at, :confirmation_sent_at,
+                   :unconfirmed_email, :sign_in_count, :current_sign_in_at, :last_sign_in_at,
+                   :current_sign_in_ip, :last_sign_in_ip)
     add_column :users, :password_digest, :string
     remove_index(:users, :email)
     change_column_default(:users, :email, nil)
