@@ -1,10 +1,15 @@
 # frozen_string_literal: true
 
+<<<<<<< Updated upstream
 module Admin
   class TestsController < Admin::BaseController
     before_action :find_test, except: %i[index new create]
 
     rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+=======
+class Admin::TestsController < Admin::BaseController
+  before_action :find_test, except: %i[index new create]
+>>>>>>> Stashed changes
 
     def index
       @tests = Test.all
@@ -18,8 +23,13 @@ module Admin
 
     def edit; end
 
+<<<<<<< Updated upstream
     def create
       @test = current_user.created_tests.new(test_params)
+=======
+  def create
+    @test = current_user.created_tests.create(test_params)
+>>>>>>> Stashed changes
 
       if @test.save
         redirect_to admin_test_path(@test)

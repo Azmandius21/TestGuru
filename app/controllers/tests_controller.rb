@@ -3,7 +3,12 @@
 class TestsController < ApplicationController
   before_action :authenticate_user!
   before_action :if_you_are_admin
+<<<<<<< Updated upstream
   before_action :find_test, except: %i[index new create]
+=======
+
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+>>>>>>> Stashed changes
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
