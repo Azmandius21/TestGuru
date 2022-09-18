@@ -2,9 +2,6 @@
 
 class TestsController < ApplicationController
   before_action :authenticate_user!
-  before_action :if_you_are_admin
-
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -23,9 +20,5 @@ class TestsController < ApplicationController
 
   def rescue_with_test_not_found
     render plain: 'Test was not found'
-  end
-
-  def if_you_are_admin
-    redirect_to admin_tests_path if current_user.is_a?(Admin)
   end
 end
