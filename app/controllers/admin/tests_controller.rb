@@ -18,12 +18,12 @@ class Admin::TestsController < Admin::BaseController
   def create
     @test = current_user.created_tests.create(test_params)
 
-      if @test.save
-        redirect_to admin_test_path(@test)
-      else
-        render :new
-      end
+    if @test.save
+      redirect_to admin_test_path(@test)
+    else
+      render :new
     end
+  end
 
   def update
     if @test.update(test_params)
