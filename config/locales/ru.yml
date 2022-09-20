@@ -1,0 +1,26 @@
+ru:
+  hello: "Привет мир"
+
+  helpers:
+    submit:
+      test:
+        create: 'Создать тест'
+        update: 'Обновить тест'
+    label:
+      test:
+        title: 'Заголовок'
+        level: 'Уровень'
+        category_id: 'Категория'
+    select:
+      prompt: "Выберите из списка"
+
+  tests:
+    index:
+      header: 'Доступные тесты'
+
+  admin:
+    tests:
+      create:
+        success: "Тест успешно создан"
+      index:
+        header: 'Доступные тесты'
