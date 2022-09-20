@@ -29,9 +29,27 @@ en:
         back: "Назад"
       create:
         success: "The test was successfully created"
+      edit:
+        header: 'Editing test'
+        show: 'Show'
+        back: 'Back'
       index:
         header: 'Tricky Tests'
         title: 'Title'
         level: 'Level'
         questions: 'Questions'
         actions: 'Actions'
+      show:
+        header-title: 'Title: %{test_title}'
+        header-level: 'Level: %(test_level)'
+        edit: 'Edit'
+        back: 'Back'
+        questions: 'Questions:'
+        body: 'Questions Body'
+        id: 'id'
+        actions: 'Actions'
+        new_question: 'New question'
+      test:
+        show: 'Show'
+        edit: 'Edit'
+        destroy: 'Destroy'
