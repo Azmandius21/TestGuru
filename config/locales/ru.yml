@@ -17,10 +17,21 @@ ru:
   tests:
     index:
       header: 'Доступные тесты'
+      title: 'Заголовок'
+      level: 'Уровень'
+      questions: 'Влпросов'
+      actions: 'Действия'
 
   admin:
     tests:
+      new:
+        header: "Новый тест"
+        back: "Назад"
       create:
         success: "Тест успешно создан"
       index:
         header: 'Доступные тесты'
+        title: 'Заголовок'
+        level: 'Уровень'
+        questions: 'Влпросов'
+        actions: 'Действия'

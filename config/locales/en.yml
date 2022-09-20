@@ -17,10 +17,21 @@ en:
   tests:
     index:
       header: 'Tricky Tests'
+      title: 'Title'
+      level: 'Level'
+      questions: 'Questions'
+      actions: 'Actions'
 
   admin:
     tests:
+      new:
+        header: "Новый тест"
+        back: "Назад"
       create:
         success: "The test was successfully created"
       index:
         header: 'Tricky Tests'
+        title: 'Title'
+        level: 'Level'
+        questions: 'Questions'
+        actions: 'Actions'
