@@ -23,6 +23,8 @@ en:
       logout: 'Logout'
 
   tests:
+    rescue_with_test_not_found:
+      not_found: 'Test was not found'
     index:
       header: 'Tricky Tests'
       title: 'Title'
