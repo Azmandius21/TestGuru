@@ -19,12 +19,15 @@ ru:
         category_id: 'Категория'
       question:
         body: 'Текст вопроса'
-        test: 'Тест'
+        test_id: 'Тест №'
       answer:
         body: 'Текст ответа'
         correct: 'Правильный'
     select:
       prompt: "Выберите из списка"
+    questions:
+      create: 'Новый вопрос к тесту: %{test}'
+      edit: 'Изменить вопрос к тесту: %{test}'
     answers:
       create: 'Новый ответ на вопрос: %{question}'
       edit: 'Изменить ответ на вопрос: %{question}'
@@ -71,8 +74,8 @@ ru:
         header: 'Новый тест'
         back: 'Назад'
       show:
-        header-title: 'Название: %{test_title}'
-        header-level: 'Уровень: %{test_level}'
+        header-title: 'Название теста: %{test_title}'
+        header-level: 'Уровень теста: %{test_level}'
         edit: 'Изменить'
         back: 'Назад'
         questions: 'Вопросы:'
@@ -121,11 +124,13 @@ ru:
         confirm: 'Вы уверены?'
     answers:
       show:
-
+        edit: 'Изменить'
+        back: 'Назад'
       edit:
-
+        show: 'Показать'
+        back: 'Назад'
       new:
-
+          back: 'Назад'
       answer:
         show: 'Показать'
         edit: 'Изменить'
@@ -139,3 +144,48 @@ ru:
       logout: 'Выйти'
     footer:
       author: 'Автор:'
+    errors:
+      header:
+        few: 'Обнаружено %{count} ошибки'
+        many: 'Обнаружено %{count} ошибок'
+        on: 'Обнаружено %{count} ошибка'
+        other: 'Обнаружено %{count} ошибок'
+
+  tests_mailer:
+    completed_test:
+      subject: 'Вы заврешили TestGuru тест!'
+
+  activerecord:
+    models:
+      category: 'Категория'
+      test: 'Тест'
+      question: 'Вопрос'
+      answer: 'Ответ'
+      test_passage: 'ПрохождениеТеста'
+      user: 'Пользователь'
+      admin: 'Админ'
+
+    attributes:
+      category:
+        title: 'Название'
+      test:
+        title: 'Название'
+        level: 'Уровень'
+        category_id: 'Номер_категории'
+        author_id: 'Номер_автора'
+      question:
+        body: 'Текст_вопроса'
+        test_id: 'Номер_теста'
+      answer:
+        body: 'Текст_ответа'
+        correct: 'Правильность'
+        question_id:
+      test_passage:
+        user_id: 'Номер_пользователя'
+        test_id: 'Номер_теста'
+        current_question_id: 'Номер_текущего_вопроса'
+        correct_questions: 'Правильные_ответы'
+
+    errors:
+      messages:
+        blank: 'Не может быть пустым'

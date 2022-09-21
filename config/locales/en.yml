@@ -19,12 +19,15 @@ en:
         category_id: 'Category'
       question:
         body: 'Body'
-        test: 'Test id'
+        test_id: 'Test id'
       answer:
         body: 'Body'
         correct: 'Correct'
     select:
       prompt: "Please select"
+    questions:
+      create: 'Create new question for test: %{test}'
+      edit: 'Edit question for test: %{test}'
     answers:
       create: 'Create new answer on question: %{question}'
       edit: 'Edit new answer on question: %{question}'
@@ -121,6 +124,14 @@ en:
         destroy: 'Destroy'
         confirm: 'Are you sure?'
     answers:
+      show:
+        edit: 'Edit'
+        back: 'Back'
+      edit:
+        show: 'Show'
+        back: 'Back'
+      new:
+          back: 'Back'
       answer:
         show: 'Show'
         edit: 'Edit'
@@ -134,3 +145,29 @@ en:
       logout: 'Exit'
     footer:
       author: 'Author:'
+    errors:
+      header:
+        on: '%{count} error detected'
+        other: '%{count} errors detected'
+
+  tests_mailer:
+    completed_test:
+      subject: 'You just completed the TestGuru test!'
+
+  activerecord:
+    models:
+      category: 'Category'
+      test: 'Test'
+      question: 'Question'
+      answer: 'Answer'
+      test_passage: 'TestPassage'
+      user: 'User'
+      admin: 'Admin'
+    attributes:
+      category:
+        title: 'title'
+      test:
+      question:
+      answer:
+        body: 'body'
+        correct: 'correct'
