@@ -23,6 +23,11 @@ ru:
       actions: 'Действия'
 
   admin:
+    shared:
+      navigation:
+        signup: 'Зарегистрироваться'
+        login: 'Войти'
+        logout: 'Выйти'
     tests:
       new:
         header: "Новый тест"

@@ -23,6 +23,11 @@ en:
       actions: 'Actions'
 
   admin:
+    shared:
+      navigation:
+        signup: 'Signup'
+        login: 'Login'
+        logout: 'Exit'
     tests:
       new:
         header: "Новый тест"
