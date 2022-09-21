@@ -6,13 +6,28 @@ ru:
       test:
         create: 'Создать тест'
         update: 'Обновить тест'
+      question:
+        create: 'Создать вопрос'
+        update: 'Обновить вопрос'
+      answer:
+        create: 'Создать ответ'
+        update: 'Обновить ответ'
     label:
       test:
         title: 'Заголовок'
         level: 'Уровень'
         category_id: 'Категория'
+      question:
+        body: 'Текст вопроса'
+        test: 'Тест'
+      answer:
+        body: 'Текст ответа'
+        correct: 'Правильный'
     select:
       prompt: "Выберите из списка"
+    answers:
+      create: 'Новый ответ на вопрос: %{question}'
+      edit: 'Изменить ответ на вопрос: %{question}'
 
   layouts:
     application:
@@ -21,6 +36,17 @@ ru:
     admin:
       welcome: 'Добро пожаловать %{email} Гуру'
       logout: 'Выход'
+
+  test_passages:
+    show:
+      test_title: 'Тест: %{title}'
+      question_body: 'Вопрос: %{body}'
+      next: 'Следующий вопрос'
+    result:
+      complited: 'Тест завершен'
+      overall_questions: 'Общее колличество вопросов: %{number}'
+      progress: 'Ваш прогресс: %{number}'
+      back: 'Назад к тестам'
 
   tests:
     rescue_with_test_not_found:
@@ -42,8 +68,8 @@ ru:
         logout: 'Выйти'
     tests:
       new:
-        header: "Новый тест"
-        back: "Назад"
+        header: 'Новый тест'
+        back: 'Назад'
       show:
         header-title: 'Название: %{test_title}'
         header-level: 'Уровень: %{test_level}'
@@ -73,9 +99,43 @@ ru:
         edit: 'Изменить'
         destroy: 'Удалить'
         confirm: 'Вы уверены?'
+    questions:
+      show:
+        new_answer: 'Новый вопрос'
+        edit: 'Изменить'
+        back: 'Назад'
+        body: 'Текст вопроса'
+        test: 'Тест:'
+        answers: 'Вопросы:'
+      edit:
+        header: 'Правка вопроса'
+        show: 'Показать'
+        back: 'Назад'
+      new:
+        header: 'Новый вопрос'
+        back: 'Назад'
+      question:
+        show: 'Показать'
+        edit: 'Изменить'
+        destroy: 'Удалить'
+        confirm: 'Вы уверены?'
+    answers:
+      show:
+
+      edit:
+
+      new:
+
+      answer:
+        show: 'Показать'
+        edit: 'Изменить'
+        destroy: 'Удалить'
+        confirm: 'Вы уверены?'
 
   shared:
     navigation:
       signup: 'Зарегистрироваться'
       login: 'Войти'
       logout: 'Выйти'
+    footer:
+      author: 'Автор:'

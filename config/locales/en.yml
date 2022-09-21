@@ -6,13 +6,29 @@ en:
       test:
         create: 'Create test'
         update: 'Update test'
+      question:
+        create: 'Create question'
+        update: 'Update question'
+      answer:
+        create: 'Create answer'
+        update: 'Update answer'
     lable:
       test:
         title: 'Title'
         level: 'Level'
         category_id: 'Category'
+      question:
+        body: 'Body'
+        test: 'Test id'
+      answer:
+        body: 'Body'
+        correct: 'Correct'
     select:
       prompt: "Please select"
+    answers:
+      create: 'Create new answer on question: %{question}'
+      edit: 'Edit new answer on question: %{question}'
+
 
   layouts:
     application:
@@ -21,6 +37,17 @@ en:
     admin:
       welcome: 'Welcome %{email} Guru'
       logout: 'Logout'
+
+  test_passages:
+    show:
+      test_title: 'Test: %{title}'
+      question_body: 'Question: %{body}'
+      next: 'Next'
+    result:
+      complited: 'Test complited'
+      overall_questions: 'Overall number questions: %{number}'
+      progress: 'Your progress is: %{number}'
+      back: 'Back to tests'
 
   tests:
     rescue_with_test_not_found:
@@ -73,9 +100,37 @@ en:
         edit: 'Edit'
         destroy: 'Destroy'
         confirm: 'Are you sure?'
+    questions:
+      show:
+        new_answer: 'New question'
+        edit: 'Edit'
+        back: 'Back'
+        body: 'Body:'
+        test: 'Test:'
+        answers: 'Answers:'
+      edit:
+        header: 'Editing question'
+        show: 'Show'
+        back: 'Back'
+      new:
+        header: 'New question'
+        back: 'Back'
+      question:
+        show: 'Show'
+        edit: 'Edit'
+        destroy: 'Destroy'
+        confirm: 'Are you sure?'
+    answers:
+      answer:
+        show: 'Show'
+        edit: 'Edit'
+        destroy: 'Destroy'
+        confirm: 'Are you sure?'
 
   shared:
     navigation:
       signup: 'Signup'
       login: 'Login'
       logout: 'Exit'
+    footer:
+      author: 'Author:'
