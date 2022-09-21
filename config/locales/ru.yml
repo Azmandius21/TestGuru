@@ -14,6 +14,14 @@ ru:
     select:
       prompt: "Выберите из списка"
 
+  layouts:
+    application:
+      welcome: 'Добро пожаловать %{email} Гуру'
+      logout: 'Выход'
+    admin:
+      welcome: 'Добро пожаловать %{email} Гуру'
+      logout: 'Выход'
+
   tests:
     index:
       header: 'Доступные тесты'

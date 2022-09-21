@@ -14,6 +14,14 @@ en:
     select:
       prompt: "Please select"
 
+  layouts:
+    application:
+      welcome: 'Welcome %{email} Guru'
+      logout: 'Logout'
+    admin:
+      welcome: 'Welcome %{email} Guru'
+      logout: 'Logout'
+
   tests:
     index:
       header: 'Tricky Tests'
@@ -46,7 +54,7 @@ en:
         actions: 'Actions'
       show:
         header-title: 'Title: %{test_title}'
-        header-level: 'Level: %(test_level)'
+        header-level: 'Level: %{test_level}'
         edit: 'Edit'
         back: 'Back'
         questions: 'Questions:'
