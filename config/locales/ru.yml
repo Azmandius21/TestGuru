@@ -23,12 +23,16 @@ ru:
       logout: 'Выход'
 
   tests:
+    rescue_with_test_not_found:
+      not_found: 'Тест не найден'
     index:
       header: 'Доступные тесты'
       title: 'Заголовок'
       level: 'Уровень'
       questions: 'Влпросов'
       actions: 'Действия'
+    test:
+      start: 'Старт'
 
   admin:
     shared:
