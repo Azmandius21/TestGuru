@@ -63,6 +63,7 @@ en:
         id: 'id'
         actions: 'Actions'
         new_question: 'New question'
+        not_found: 'Test was not found'
       test:
         show: 'Show'
         edit: 'Edit'

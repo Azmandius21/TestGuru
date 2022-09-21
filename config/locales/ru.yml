@@ -50,6 +50,7 @@ ru:
         id: '№'
         actions: 'Действия'
         new_question: 'Новый вопрос'
+        not_found: 'Тест не найден'
       create:
         success: "Тест успешно создан"
       edit:
