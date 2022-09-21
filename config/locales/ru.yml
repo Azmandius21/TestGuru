@@ -60,12 +60,14 @@ ru:
         header: 'Доступные тесты'
         title: 'Заголовок'
         level: 'Уровень'
-        questions: 'Влпросов'
+        questions: 'Вопросов'
         actions: 'Действия'
+        new_test: 'Создать новый тест'
       test:
         show: 'Показать'
         edit: 'Изменить'
         destroy: 'Удалить'
+        confirm: 'Вы уверены?'
 
   shared:
     navigation:

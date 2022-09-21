@@ -52,6 +52,7 @@ en:
         level: 'Level'
         questions: 'Questions'
         actions: 'Actions'
+        new_test: 'New Test'
       show:
         header-title: 'Title: %{test_title}'
         header-level: 'Level: %{test_level}'
@@ -66,6 +67,7 @@ en:
         show: 'Show'
         edit: 'Edit'
         destroy: 'Destroy'
+        confirm: 'Are you sure?'
 
   shared:
     navigation:
