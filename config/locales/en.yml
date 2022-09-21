@@ -53,3 +53,9 @@ en:
         show: 'Show'
         edit: 'Edit'
         destroy: 'Destroy'
+
+  shared:
+    navigation:
+      signup: 'Signup'
+      login: 'Login'
+      logout: 'Exit'

@@ -53,3 +53,9 @@ ru:
         show: 'Показать'
         edit: 'Изменить'
         destroy: 'Удалить'
+
+  shared:
+    navigation:
+      signup: 'Зарегистрироваться'
+      login: 'Войти'
+      logout: 'Выйти'
