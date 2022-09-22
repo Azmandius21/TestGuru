@@ -154,20 +154,4 @@ en:
     completed_test:
       subject: 'You just completed the TestGuru test!'
 
-  activerecord:
-    models:
-      category: 'Category'
-      test: 'Test'
-      question: 'Question'
-      answer: 'Answer'
-      test_passage: 'TestPassage'
-      user: 'User'
-      admin: 'Admin'
-    attributes:
-      category:
-        title: 'title'
-      test:
-      question:
-      answer:
-        body: 'body'
-        correct: 'correct'
+  
