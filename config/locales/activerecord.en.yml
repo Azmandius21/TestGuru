@@ -13,10 +13,22 @@ en:
       category:
         title: 'title'
       test:
+        title: 'title'
+        level: 'level'
+        category_id: 'category_id'
+        author_id: 'author_id'
       question:
+        body: 'body'
+        test_id: 'test_id'
       answer:
         body: 'body'
         correct: 'correct'
+        question_id: 'question_id'
+      test_passage:
+        user_id: 'user_id'
+        test_id: 'test_id'
+        current_question_id: 'current_question_id'
+        correct_questions: 'correct_questions'
 
     errors:
       messages:
