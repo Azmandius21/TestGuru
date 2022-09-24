@@ -6,21 +6,153 @@ ru:
       test:
         create: 'Создать тест'
         update: 'Обновить тест'
+      question:
+        create: 'Создать вопрос'
+        update: 'Обновить вопрос'
+      answer:
+        create: 'Создать ответ'
+        update: 'Обновить ответ'
     label:
       test:
         title: 'Заголовок'
         level: 'Уровень'
         category_id: 'Категория'
+      question:
+        body: 'Текст вопроса'
+        test_id: 'Тест №'
+      answer:
+        body: 'Текст ответа'
+        correct: 'Правильный'
     select:
       prompt: "Выберите из списка"
+    questions:
+      create: 'Новый вопрос к тесту: %{test}'
+      edit: 'Изменить вопрос к тесту: %{test}'
+    answers:
+      create: 'Новый ответ на вопрос: %{question}'
+      edit: 'Изменить ответ на вопрос: %{question}'
+
+  layouts:
+    application:
+      welcome: 'Добро пожаловать %{email} Гуру'
+      logout: 'Выход'
+    admin:
+      welcome: 'Добро пожаловать %{email} Гуру'
+      logout: 'Выход'
+
+  test_passages:
+    show:
+      test_title: 'Тест: %{title}'
+      question_body: 'Вопрос: %{body}'
+      next: 'Следующий вопрос'
+    result:
+      complited: 'Тест завершен'
+      overall_questions: 'Общее колличество вопросов: %{number}'
+      progress: 'Ваш прогресс: %{number}'
+      back: 'Назад к тестам'
 
   tests:
+    rescue_with_test_not_found:
+      not_found: 'Тест не найден'
     index:
       header: 'Доступные тесты'
+      title: 'Заголовок'
+      level: 'Уровень'
+      questions: 'Влпросов'
+      actions: 'Действия'
+    test:
+      start: 'Старт'
 
   admin:
+    shared:
+      navigation:
+        signup: 'Зарегистрироваться'
+        login: 'Войти'
+        logout: 'Выйти'
     tests:
+      new:
+        header: 'Новый тест'
+        back: 'Назад'
+      show:
+        header-title: 'Название теста: %{test_title}'
+        header-level: 'Уровень теста: %{test_level}'
+        edit: 'Изменить'
+        back: 'Назад'
+        questions: 'Вопросы:'
+        body: 'Текст вопроса'
+        id: '№'
+        actions: 'Действия'
+        new_question: 'Новый вопрос'
+        not_found: 'Тест не найден'
       create:
         success: "Тест успешно создан"
+      edit:
+        header: 'Правка теста'
+        show: 'Показать'
+        back: 'Назад'
       index:
         header: 'Доступные тесты'
+        title: 'Заголовок'
+        level: 'Уровень'
+        questions: 'Вопросов'
+        actions: 'Действия'
+        new_test: 'Создать новый тест'
+      test:
+        show: 'Показать'
+        edit: 'Изменить'
+        destroy: 'Удалить'
+        confirm: 'Вы уверены?'
+    questions:
+      show:
+        new_answer: 'Новый вопрос'
+        edit: 'Изменить'
+        back: 'Назад'
+        body: 'Текст вопроса'
+        test: 'Тест:'
+        answers: 'Вопросы:'
+      edit:
+        header: 'Правка вопроса'
+        show: 'Показать'
+        back: 'Назад'
+      new:
+        header: 'Новый вопрос'
+        back: 'Назад'
+      question:
+        show: 'Показать'
+        edit: 'Изменить'
+        destroy: 'Удалить'
+        confirm: 'Вы уверены?'
+    answers:
+      show:
+        edit: 'Изменить'
+        back: 'Назад'
+      edit:
+        show: 'Показать'
+        back: 'Назад'
+      new:
+          back: 'Назад'
+      answer:
+        show: 'Показать'
+        edit: 'Изменить'
+        destroy: 'Удалить'
+        confirm: 'Вы уверены?'
+
+  shared:
+    navigation:
+      signup: 'Зарегистрироваться'
+      login: 'Войти'
+      logout: 'Выйти'
+    footer:
+      author: 'Автор:'
+    errors:
+      header:
+        few: 'Обнаружено %{count} ошибки'
+        many: 'Обнаружено %{count} ошибок'
+        on: 'Обнаружено %{count} ошибка'
+        other: 'Обнаружено %{count} ошибок'
+
+  tests_mailer:
+    completed_test:
+      subject: 'Вы заврешили TestGuru тест!'
+
+  

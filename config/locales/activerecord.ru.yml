@@ -1,0 +1,37 @@
+ru:
+  activerecord:
+    models:
+      category: 'Категория'
+      test: 'Тест'
+      question: 'Вопрос'
+      answer: 'Ответ'
+      test_passage: 'ПрохождениеТеста'
+      user: 'Пользователь'
+      admin: 'Админ'
+
+    attributes:
+      category:
+        title: 'название'
+      test:
+        title: 'название'
+        level: 'уровень'
+        category_id: 'номер_категории'
+        author_id: 'номер_автора'
+      question:
+        body: 'текст_вопроса'
+        test_id: 'номер_теста'
+      answer:
+        body: 'текст_ответа'
+        correct: 'правильность'
+        question_id: 'номер_вопроса'
+      test_passage:
+        user_id: 'номер_пользователя'
+        test_id: 'номер_теста'
+        current_question_id: 'номер_текущего_вопроса'
+        correct_questions: 'правильные_ответы'
+
+    errors:
+      messages:
+        blank: 'не может быть пустым'
+        presence: "атрибут должен быть указан"
+        numericality: "должно быть число"

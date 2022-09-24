@@ -1,33 +1,157 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  hello: 'Hello world'
+
+  helpers:
+    submit:
+      test:
+        create: 'Create test'
+        update: 'Update test'
+      question:
+        create: 'Create question'
+        update: 'Update question'
+      answer:
+        create: 'Create answer'
+        update: 'Update answer'
+    lable:
+      test:
+        title: 'Title'
+        level: 'Level'
+        category_id: 'Category'
+      question:
+        body: 'Body'
+        test_id: 'Test id'
+      answer:
+        body: 'Body'
+        correct: 'Correct'
+    select:
+      prompt: "Please select"
+    questions:
+      create: 'Create new question for test: %{test}'
+      edit: 'Edit question for test: %{test}'
+    answers:
+      create: 'Create new answer on question: %{question}'
+      edit: 'Edit new answer on question: %{question}'
+
+
+  layouts:
+    application:
+      welcome: 'Welcome %{email} Guru'
+      logout: 'Logout'
+    admin:
+      welcome: 'Welcome %{email} Guru'
+      logout: 'Logout'
+
+  test_passages:
+    show:
+      test_title: 'Test: %{title}'
+      question_body: 'Question: %{body}'
+      next: 'Next'
+    result:
+      complited: 'Test complited'
+      overall_questions: 'Overall number questions: %{number}'
+      progress: 'Your progress is: %{number}'
+      back: 'Back to tests'
+
+  tests:
+    rescue_with_test_not_found:
+      not_found: 'Test was not found'
+    index:
+      header: 'Tricky Tests'
+      title: 'Title'
+      level: 'Level'
+      questions: 'Questions'
+      actions: 'Actions'
+    test:
+      start: 'Start'
+
+  admin:
+    shared:
+      navigation:
+        signup: 'Signup'
+        login: 'Login'
+        logout: 'Exit'
+    tests:
+      new:
+        header: "Новый тест"
+        back: "Назад"
+      create:
+        success: "The test was successfully created"
+      edit:
+        header: 'Editing test'
+        show: 'Show'
+        back: 'Back'
+      index:
+        header: 'Tricky Tests'
+        title: 'Title'
+        level: 'Level'
+        questions: 'Questions'
+        actions: 'Actions'
+        new_test: 'New Test'
+      show:
+        header-title: 'Title: %{test_title}'
+        header-level: 'Level: %{test_level}'
+        edit: 'Edit'
+        back: 'Back'
+        questions: 'Questions:'
+        body: 'Questions Body'
+        id: 'id'
+        actions: 'Actions'
+        new_question: 'New question'
+        not_found: 'Test was not found'
+      test:
+        show: 'Show'
+        edit: 'Edit'
+        destroy: 'Destroy'
+        confirm: 'Are you sure?'
+    questions:
+      show:
+        new_answer: 'New question'
+        edit: 'Edit'
+        back: 'Back'
+        body: 'Body:'
+        test: 'Test:'
+        answers: 'Answers:'
+      edit:
+        header: 'Editing question'
+        show: 'Show'
+        back: 'Back'
+      new:
+        header: 'New question'
+        back: 'Back'
+      question:
+        show: 'Show'
+        edit: 'Edit'
+        destroy: 'Destroy'
+        confirm: 'Are you sure?'
+    answers:
+      show:
+        edit: 'Edit'
+        back: 'Back'
+      edit:
+        show: 'Show'
+        back: 'Back'
+      new:
+          back: 'Back'
+      answer:
+        show: 'Show'
+        edit: 'Edit'
+        destroy: 'Destroy'
+        confirm: 'Are you sure?'
+
+  shared:
+    navigation:
+      signup: 'Signup'
+      login: 'Login'
+      logout: 'Exit'
+    footer:
+      author: 'Author:'
+    errors:
+      header:
+        on: '%{count} error detected'
+        other: '%{count} errors detected'
+
+  tests_mailer:
+    completed_test:
+      subject: 'You just completed the TestGuru test!'
+
+  

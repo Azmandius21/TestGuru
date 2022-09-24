@@ -5,9 +5,9 @@
 
   <div class="nav_list">
     <ul>
-      <li><%= link_to 'Signup', new_user_registration_path %></li>
-      <li><%= link_to 'Login', new_user_session_path %></li>
-      <li><%= link_to 'Exit', destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to t('.signup'), new_user_registration_path %></li>
+      <li><%= link_to t('.login'), new_user_session_path %></li>
+      <li><%= link_to t('.logout'), destroy_user_session_path, method: :delete %></li>
     </ul>
   </div>
 </nav>

@@ -1,23 +1,19 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Body:</strong>
+  <strong><%= t('.body')%></strong>
   <%= @question.body %>
 </p>
 
 <p>
-  <strong>Test:</strong>
+  <strong><%= t('.test')%></strong>
   <%= @question.test.title %>
 </p>
-
-<%= link_to 'Edit', edit_admin_question_path(@question) %> |
-<%= link_to 'Back', admin_test_path(@question.test) %>
+<%= link_to t('.new_answer'), new_admin_question_answer_path(@question) %>
+<%= link_to t('.edit'), edit_admin_question_path(@question) %> |
+<%= link_to t('.back'), admin_test_path(@question.test) %>
 
 <p>
-  <h4>Answers:</h4>
+  <strong><%= t('.answers')%></strong>
   <ol>
     <%= render @question.answers %>
-  </ol>
-  <br>
-  <%= link_to 'New answer', new_admin_question_answer_path(@question) %>
+  </ol><br>
 </p>
