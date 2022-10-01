@@ -1,5 +1,8 @@
 <nav class="navbar bg-light px-4">
   <%= link_to 'Test Guru', tests_path, class: 'navbar-brand' %>
+  <% if is_user_admin?(current_user) %>
+    <%= link_to 'Test Guru Admin', admin_tests_path, class: 'navbar-brand' %>
+  <% end %>
 
   <span class="navbar-text">
     <% if user_signed_in? %>
