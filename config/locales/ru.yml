@@ -33,9 +33,6 @@ ru:
       edit: 'Изменить ответ на вопрос: %{question}'
 
   layouts:
-    application:
-      welcome: 'Добро пожаловать %{email} Гуру'
-      logout: 'Выход'
     admin:
       welcome: 'Добро пожаловать %{email} Гуру'
       logout: 'Выход'
@@ -138,7 +135,8 @@ ru:
         confirm: 'Вы уверены?'
 
   shared:
-    navigation:
+    nav:
+      welcome: 'Добро пожаловать %{email} Гуру'
       signup: 'Зарегистрироваться'
       login: 'Войти'
       logout: 'Выйти'
@@ -154,5 +152,3 @@ ru:
   tests_mailer:
     completed_test:
       subject: 'Вы заврешили TestGuru тест!'
-
-  

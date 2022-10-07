@@ -34,9 +34,6 @@ en:
 
 
   layouts:
-    application:
-      welcome: 'Welcome %{email} Guru'
-      logout: 'Logout'
     admin:
       welcome: 'Welcome %{email} Guru'
       logout: 'Logout'
@@ -139,7 +136,8 @@ en:
         confirm: 'Are you sure?'
 
   shared:
-    navigation:
+    nav:
+      welcome: 'Welcome %{email} Guru'
       signup: 'Signup'
       login: 'Login'
       logout: 'Exit'
@@ -153,5 +151,3 @@ en:
   tests_mailer:
     completed_test:
       subject: 'You just completed the TestGuru test!'
-
-  

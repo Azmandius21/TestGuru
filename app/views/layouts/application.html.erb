@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=devise-width, inital-scale=1, shrink-to-fit=no">
+
     <title>TestGuru</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,21 +13,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div class='navigation'>
-    <%= render '/shared/navigation' %>
-  </div>
-
   <body>
-    <% if user_signed_in? %>
-      <div class="welcome">
-        <%= t('.welcome', email: current_user.email) if current_user.present? %>
-        <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
-      </div>
-    <% end %>
+    <%= render 'shared/nav' %>
 
-    <%= render 'shared/flash' %>
-
-    <%= yield %>
+    <div class="container">
+      <%= render 'shared/flash' %>
+      <%= yield %>
+    </div>
   </body>
 
   <footer>
