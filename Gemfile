@@ -31,7 +31,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'devise', '~> 4.0'
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'devise', '~>4.0'
 
 # locale
 gem 'rails-i18n', '~> 4.0'
@@ -40,7 +42,12 @@ gem 'rails-i18n', '~> 4.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'faraday'
+
+#NETWORKING
+gem 'faraday', '~> 2.6.0'
+gem 'faraday-retry'
+
+gem 'octokit','~>5.0'
 
 gem 'octokit', '~> 5.0'
 
