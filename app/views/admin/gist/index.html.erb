@@ -1,2 +1,21 @@
-<h1>Admin::Gist#index</h1>
-<p>Find me in app/views/admin/gist/index.html.erb</p>
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-6">
+    <h1 class="row justify-content-center"><%= t('.header')%></h1>
+    <div class="card border-primary mt-3">
+      <table>
+        <head>
+          <tr class= "container text-center">
+            <th><%= t('.questions_body') %></th>
+            <th><%= t('.gists_URL') %></th>
+            <th><%= t('.users_email') %></th>
+          </tr>
+        </head>
+
+        <body>
+          <%= render @gists %>
+        </body>
+      </table>
+    </div>
+    <%= link_to 'Back', admin_test_path %>
+  </div>
+</div>
