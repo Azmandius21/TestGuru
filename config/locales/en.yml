@@ -46,6 +46,7 @@ en:
       test_title: 'Test: %{title}'
       question_body: 'Question: %{body}'
       next: 'Next'
+      create_gist: 'Create gist'
     result:
       complited: 'Test complited'
       overall_questions: 'Overall number questions: %{number}'

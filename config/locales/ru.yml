@@ -45,6 +45,7 @@ ru:
       test_title: 'Тест: %{title}'
       question_body: 'Вопрос: %{body}'
       next: 'Следующий вопрос'
+      create_gist: 'Создать гист'
     result:
       complited: 'Тест завершен'
       overall_questions: 'Общее колличество вопросов: %{number}'
