@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 2022_10_16_065238) do
   create_table "gists", force: :cascade do |t|
     t.string "html_url", null: false
     t.integer "user_id", null: false
-    t.integer "qiestion_id", null: false
+    t.integer "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["qiestion_id"], name: "index_gists_on_qiestion_id"
+    t.index ["question_id"], name: "index_gists_on_question_id"
     t.index ["user_id"], name: "index_gists_on_user_id"
   end
 
