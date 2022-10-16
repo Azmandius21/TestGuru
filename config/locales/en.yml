@@ -89,6 +89,7 @@ en:
         questions: 'Questions'
         actions: 'Actions'
         new_test: 'New Test'
+        gists: 'List all Gists'
       show:
         header-title: 'Title: %{test_title}'
         header-level: 'Level: %{test_level}'
@@ -139,8 +140,9 @@ en:
         edit: 'Edit'
         destroy: 'Destroy'
         confirm: 'Are you sure?'
-    gist:
+    gists:
       index:
+        header: 'All gists for TestGuru'
         back: 'Back'
 
   shared:

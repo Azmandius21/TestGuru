@@ -99,6 +99,7 @@ ru:
         questions: 'Вопросов'
         actions: 'Действия'
         new_test: 'Создать новый тест'
+        gists: 'Список всех Гистов'
       test:
         show: 'Показать'
         edit: 'Изменить'
@@ -138,9 +139,10 @@ ru:
         edit: 'Изменить'
         destroy: 'Удалить'
         confirm: 'Вы уверены?'
-    gist:
+    gists:
       index:
-        back: 'Back'
+        header: 'Гисты для TestGuru'
+        back: 'Назад'
 
   shared:
     nav:

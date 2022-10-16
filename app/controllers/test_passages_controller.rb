@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+GIST_URL = 'https://api.github.com/gists'
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_test_passage, only: %i[show update result gist]
@@ -9,10 +9,12 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def gist
-    gist = GistQuestionService.new(@test_passage.current_question).call
+    result = GistQuestionService.new(@test_passage.current_question).call
 
-    flash_message = if gist.success?
-                      Gist.create(html_url: gist.url, user_id: current_user.id, question_id: current_question.id)
+    flash_message = if result.url.include?(GIST_URL)
+                      Gist.create(html_url: result.url,
+                                  user_id: @test_passage.user.id,
+                                  question_id: @test_passage.current_question.id)
                       { notice: t('.success') }
                     else
                       { alert: t('.failure') }
