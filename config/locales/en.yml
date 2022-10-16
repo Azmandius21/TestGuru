@@ -48,6 +48,9 @@ en:
       overall_questions: 'Overall number questions: %{number}'
       progress: 'Your progress is: %{number}'
       back: 'Back to tests'
+    gist:
+      success: 'The gist created successfully'
+      failure: 'The gist wasn't created'
 
   tests:
     rescue_with_test_not_found:
@@ -151,3 +154,7 @@ en:
   tests_mailer:
     completed_test:
       subject: 'You just completed the TestGuru test!'
+
+  services:
+    gist_question_services:
+      gist_title: 'A question about %{test_title} from TestGuru'

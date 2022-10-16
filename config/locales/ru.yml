@@ -47,6 +47,9 @@ ru:
       overall_questions: 'Общее колличество вопросов: %{number}'
       progress: 'Ваш прогресс: %{number}'
       back: 'Назад к тестам'
+    gist:
+      success: 'Gist успешно создан'
+      failure: 'Создать gist не удалось'
 
   tests:
     rescue_with_test_not_found:
@@ -152,3 +155,7 @@ ru:
   tests_mailer:
     completed_test:
       subject: 'Вы заврешили TestGuru тест!'
+
+  services:
+    gist_question_services:
+      gist_title: 'Вопрос о %{test_title} прямиком из TestGuru'
