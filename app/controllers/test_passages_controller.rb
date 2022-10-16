@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 GIST_URL = 'https://api.github.com/gists'
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
