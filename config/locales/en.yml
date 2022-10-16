@@ -139,6 +139,9 @@ en:
         edit: 'Edit'
         destroy: 'Destroy'
         confirm: 'Are you sure?'
+    gist:
+      index:
+        back: 'Back'
 
   shared:
     nav:

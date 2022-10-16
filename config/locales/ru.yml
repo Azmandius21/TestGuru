@@ -138,6 +138,9 @@ ru:
         edit: 'Изменить'
         destroy: 'Удалить'
         confirm: 'Вы уверены?'
+    gist:
+      index:
+        back: 'Back'
 
   shared:
     nav:

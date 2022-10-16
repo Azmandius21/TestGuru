@@ -5,9 +5,9 @@
       <table>
         <head>
           <tr class= "container text-center">
-            <th><%= t('.questions_body') %></th>
-            <th><%= t('.gists_URL') %></th>
-            <th><%= t('.users_email') %></th>
+            <th>Question</th>
+            <th>Gist URL</th>
+            <th>Users email</th>
           </tr>
         </head>
 
@@ -16,6 +16,6 @@
         </body>
       </table>
     </div>
-    <%= link_to 'Back', admin_test_path %>
+    <%= link_to t('.back'), admin_test_path %>
   </div>
 </div>
