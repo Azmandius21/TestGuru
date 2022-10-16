@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-GIST_URL = 'https://api.github.com/gists'
+GIST_URL = 'https://api.github.com/gists'.freeze
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_test_passage, only: %i[show update result gist]
