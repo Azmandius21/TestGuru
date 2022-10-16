@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', groups: %i[development test]
 
 gem 'devise', '~>4.0'
 
@@ -43,11 +43,11 @@ gem 'rails-i18n', '~> 4.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-#NETWORKING
+# NETWORKING
 gem 'faraday', '~> 2.6.0'
 gem 'faraday-retry'
 
-gem 'octokit','~>5.0'
+gem 'octokit', '~>5.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
