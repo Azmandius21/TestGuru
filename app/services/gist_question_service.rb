@@ -1,15 +1,28 @@
+GIST_URL = 'https://gist.github.com'.freeze
+
 class GistQuestionService
-  def initialize(question, client: nil)
+  def initialize(question, client = default_client)
     @question = question
     @test = @question.test
-    @client = client || Octokit::Client.new(access_token: ENV.fetch('GIT_TOKEN'))
+    @client = client
+  end
+
+  GistUrl = Struct.new(:url) do
+    def success?
+      url.include?GIST_URL
+    end
   end
 
   def call
-    @client.create_gist(gist_params)
+    gist = @client.create_gist(gist_params)
+    GistUrl.new(gist.html_url)
   end
 
   private
+
+  def default_client
+    Octokit::Client.new(access_token: ENV.fetch('GITHUB_GIST_TOKEN'))
+  end
 
   def gist_params
     {
@@ -23,8 +36,8 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [@question.body]
-    content += @question.answers.pluck(:body)
-    content.join("\n")
+    [@question.body, @question.answers.pluck(:body)].join("\n")
   end
+
+
 end
