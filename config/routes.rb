@@ -23,8 +23,6 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   namespace :admin do
     resources :tests do
       resources :questions, shallow: true, except: :index do

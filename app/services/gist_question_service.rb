@@ -9,7 +9,7 @@ class GistQuestionService
 
   GistUrl = Struct.new(:url) do
     def success?
-      url.include?GIST_URL
+      url.include? GIST_URL
     end
   end
 
@@ -38,6 +38,4 @@ class GistQuestionService
   def gist_content
     [@question.body, @question.answers.pluck(:body)].join("\n")
   end
-
-
 end

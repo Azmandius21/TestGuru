@@ -9,10 +9,10 @@ class GistsController < ApplicationController
                       Gist.create!(html_url: result.url,
                                    user_id: @test_passage.user_id,
                                    question_id: @question.id)
-                     { notice: t('.success', gist_link:"#{result.url}") }
-                   else
-                     { alert: t('.failure') }
-                   end
+                      { notice: t('.success', gist_link: "#{result.url}") }
+                    else
+                      { alert: t('.failure') }
+                    end
 
     redirect_to @test_passage, flash_message
   end
