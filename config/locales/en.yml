@@ -39,9 +39,6 @@ en:
       logout: 'Logout'
 
   test_passages:
-    gist:
-      success: 'Gist was successfully created'
-      failure: 'Gist was not created'
     show:
       test_title: 'Test: %{title}'
       question_body: 'Question: %{body}'
@@ -53,6 +50,10 @@ en:
       progress: 'Your progress is: %{number}'
       back: 'Back to tests'
 
+  gists:
+    create:
+      success: 'Gist was successfully created %{gist_link}'
+      failure: 'Gist was not created'
 
   tests:
     rescue_with_test_not_found:

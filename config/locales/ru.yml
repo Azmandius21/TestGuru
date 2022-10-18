@@ -38,9 +38,6 @@ ru:
       logout: 'Выход'
 
   test_passages:
-    gist:
-      success: 'Gist успешно создан'
-      failure: 'Создать gist не удалось'
     show:
       test_title: 'Тест: %{title}'
       question_body: 'Вопрос: %{body}'
@@ -51,6 +48,11 @@ ru:
       overall_questions: 'Общее колличество вопросов: %{number}'
       progress: 'Ваш прогресс: %{number}'
       back: 'Назад к тестам'
+
+  gists:
+    create:
+      success: 'Гист был успешно создан %{gist_link}'
+      failure: 'Не удалось создать Гист'
 
 
   tests:
