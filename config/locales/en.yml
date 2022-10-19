@@ -43,11 +43,17 @@ en:
       test_title: 'Test: %{title}'
       question_body: 'Question: %{body}'
       next: 'Next'
+      create_gist: 'Create gist'
     result:
       complited: 'Test complited'
       overall_questions: 'Overall number questions: %{number}'
       progress: 'Your progress is: %{number}'
       back: 'Back to tests'
+
+  gists:
+    create:
+      success: 'Gist was successfully created %{gist_link}'
+      failure: 'Gist was not created'
 
   tests:
     rescue_with_test_not_found:
@@ -84,6 +90,7 @@ en:
         questions: 'Questions'
         actions: 'Actions'
         new_test: 'New Test'
+        gists: 'List all Gists'
       show:
         header-title: 'Title: %{test_title}'
         header-level: 'Level: %{test_level}'
@@ -134,6 +141,10 @@ en:
         edit: 'Edit'
         destroy: 'Destroy'
         confirm: 'Are you sure?'
+    gists:
+      index:
+        header: 'All gists for TestGuru'
+        back: 'Back'
 
   shared:
     nav:
@@ -151,3 +162,7 @@ en:
   tests_mailer:
     completed_test:
       subject: 'You just completed the TestGuru test!'
+
+  services:
+    gist_question_services:
+      gist_title: 'A question about %{test_title} from TestGuru'
