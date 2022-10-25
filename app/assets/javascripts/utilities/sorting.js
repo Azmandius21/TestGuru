@@ -15,6 +15,7 @@ function sortRowsByTitle() {
   }
 
   sortedRows.sort(compareRowsAsc)
+
   if (this.querySelector('.octicon-arrow-up').classList.contains('hide')) {
    sortedRows.sort(compareRowsAsc)
    this.querySelector('.octicon-arrow-up').classList.remove('hide')
