@@ -15,10 +15,8 @@ function confPassword(event) {
       document.querySelector('.octicon-check-circle').classList.add('hide')
       document.querySelector('.octicon-circle-slash').classList.remove('hide')
     }
-  }
-
-  if (!passwordConf){
-    document.querySelector('.octicon-circle-slash').classList.add('hide')
-    document.querySelector('.octicon-check-circle').classList.add('hide')
+  } else {
+      document.querySelector('.octicon-circle-slash').classList.add('hide')
+      document.querySelector('.octicon-check-circle').classList.add('hide')
   }
 }
