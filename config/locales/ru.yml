@@ -158,7 +158,7 @@ ru:
       header:
         few: 'Обнаружено %{count} ошибки'
         many: 'Обнаружено %{count} ошибок'
-        on: 'Обнаружено %{count} ошибка'
+        one: 'Обнаружена %{count} ошибка'
         other: 'Обнаружено %{count} ошибок'
 
   tests_mailer:
