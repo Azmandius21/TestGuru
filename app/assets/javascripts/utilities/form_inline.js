@@ -16,11 +16,16 @@ function formInlineLinkHandler(event) {
 }
 
 function formInlineHandler(testId) {
-  let $link = $(.'form-inline-link[data-test-id="' + testId + '"]'')
-  let $testTitle = $(.'test-title[data-test-id="' + testId + '"]'')
-  let $formInline = $(.'form-inline[data-test-id="' + testId + '"]'')
+  let $link = $('.form-inline-link[data-test-id="' + testId + '"]')
+  let $testTitle = $('.test-title[data-test-id="' + testId + '"]')
+  let $formInline = $('.form-inline[data-test-id="' + testId + '"]')
 
-  if ($formInline.contains('hide')) {
-    $testTitle.add
+  $formInline.toggleClass("hide")
+  $testTitle.toggleClass("hide")
+
+  if ($formInline.hasClass("hide")) {
+    $link.text("Edit")
+  } else {
+    $link.text("Cancel")
   }
 }
