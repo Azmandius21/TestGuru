@@ -10,4 +10,12 @@
 
   <p><%= form.submit t('.next') %></p>
 <% end %>
+
 <%= link_to t('.create_gist'), test_passage_gists_path(@test_passage), method: :post %>
+<div class="progress">
+  <%= content_tag :div,
+                  class: "progress-bar",
+                  rolle: "progressbar",
+                  data: {test_passage_id: @test_passage.id} do %>
+  <% end %>
+</div>
