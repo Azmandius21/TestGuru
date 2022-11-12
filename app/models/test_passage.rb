@@ -27,8 +27,8 @@ class TestPassage < ApplicationRecord
     progress >= SUCCESS_RATE
   end
 
-  def progress_bar
-    test.questions.cont*100/current_question.id.to_f
+  def number_current_question
+    test.questions.index(current_question) + 1
   end
 
   private

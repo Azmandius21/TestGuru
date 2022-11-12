@@ -13,9 +13,8 @@
 
 <%= link_to t('.create_gist'), test_passage_gists_path(@test_passage), method: :post %>
 <div class="progress">
-  <%= content_tag :div,
-                  class: "progress-bar",
-                  rolle: "progressbar",
+  <%= content_tag :div, class: "progress-bar",
                   data: {test_passage_id: @test_passage.id} do %>
+    <%=  progress_bar(@test_passage) %>
   <% end %>
 </div>
