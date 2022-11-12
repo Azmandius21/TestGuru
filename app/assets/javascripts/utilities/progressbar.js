@@ -1,13 +1,12 @@
 document.addEventListener('turbolinks:load', function() {
   if (document.querySelector('.progress-bar')) {
     const progressBar =  document.querySelector('.progress-bar')
-    let progressInPersent = progressBar.textContent
-    growProgressBar(progressBar, progressBar)
-
-    console.log(progressInPersent);
+    let progressInPercent = progressBar.dataset.progress
+    growProgressBar(progressInPercent, progressBar)
   }
 })
 
-function growProgressBar(persent, progressBar) {
-  progressBar.style.width = persent
+function growProgressBar(percent, element) {
+  element.style.width = percent
+  element.innerHTML = percent 
 }
