@@ -6,7 +6,7 @@ module TestPassagesHelper
   end
 
   def progress_bar(test_passage)
-    progress = (test_passage.number_current_question-1)*100/test_passage.test.questions.count.round()
+    progress = (test_passage.number_current_question - 1) * 100 / test_passage.test.questions.count.round
     progress_in_persent = "#{progress}%"
   end
 end
