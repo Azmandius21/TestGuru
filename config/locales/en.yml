@@ -109,7 +109,7 @@ en:
         confirm: 'Are you sure?'
     questions:
       show:
-        new_answer: 'New question'
+        new_answer: 'New answer'
         edit: 'Edit'
         back: 'Back'
         body: 'Body:'
