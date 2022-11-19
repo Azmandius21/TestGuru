@@ -27,6 +27,10 @@ class TestPassage < ApplicationRecord
     progress >= SUCCESS_RATE
   end
 
+  def number_current_question
+    test.questions.index(current_question) + 1
+  end
+
   private
 
   def before_validation_set_first_question

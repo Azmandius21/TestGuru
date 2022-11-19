@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20_221_016_065_238) do
 
   create_table 'users', force: :cascade do |t|
     t.text 'email', default: '', null: false
+    t.text 'password', default: '', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.string 'encrypted_password', default: '', null: false
