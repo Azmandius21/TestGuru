@@ -1,31 +1,31 @@
 document.addEventListener('turbolinks:load', function() {
-  let controls = document.querySelectorAll('.form-inline-link')
+  var controls = document.querySelectorAll('.form-inline-link')
 
   if (controls.length) {
-    for (let i = 0; i < controls.length; i++) {
+    for (var i = 0; i < controls.length; i++) {
       controls[i].addEventListener('click', formInlineLinkHandler)
     }
   }
 
-  let errors = document.querySelector(".resource-errors")
+  var errors = document.querySelector(".resource-errors")
 
   if (errors) {
-    let resourceId = errors.dataset.resourceId
+    var resourceId = errors.dataset.resourceId
     formInlineHandler(resourceId)
   }
 })
 
 function formInlineLinkHandler(event) {
   event.preventDefault()
-  let testId = this.dataset.testId
+  var testId = this.dataset.testId
 
   formInlineHandler(testId)
 }
 
 function formInlineHandler(testId) {
-  let $link = $('.form-inline-link[data-test-id="' + testId + '"]')
-  let $testTitle = $('.test-title[data-test-id="' + testId + '"]')
-  let $formInline = $('.form-inline[data-test-id="' + testId + '"]')
+  var $link = $('.form-inline-link[data-test-id="' + testId + '"]')
+  var $testTitle = $('.test-title[data-test-id="' + testId + '"]')
+  var $formInline = $('.form-inline[data-test-id="' + testId + '"]')
 
   $formInline.toggleClass("hide")
   $testTitle.toggleClass("hide")

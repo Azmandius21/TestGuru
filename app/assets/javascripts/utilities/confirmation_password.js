@@ -1,11 +1,11 @@
 document.addEventListener('turbolinks:load', function() {
-  const form = document.querySelector('.new_user')
+  var form = document.querySelector('.new_user')
   if (form) {form.user_password_confirmation.addEventListener('input', confPassword)}
 })
 
 function confPassword(event) {
-  let password = $('#user_password').val()
-  let passwordConf = $('#user_password_confirmation').val()
+  var password = $('#user_password').val()
+  var passwordConf = $('#user_password_confirmation').val()
 
   if (passwordConf) {
     if (password == passwordConf) {
