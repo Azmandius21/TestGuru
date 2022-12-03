@@ -9,4 +9,9 @@ module TestPassagesHelper
     progress = (test_passage.number_current_question - 1) * 100 / test_passage.test.questions.count.round
     progress_in_persent = "#{progress}%"
   end
+
+  def gift_badge(test_passage)
+    user = test_passage.user
+    user.awards << 
+  end
 end

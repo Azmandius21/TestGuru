@@ -3,7 +3,9 @@ class CreateBadges < ActiveRecord::Migration[5.2]
     create_table :badges do |t|
       t.string :title, null: false
       t.string :picture_url
-      t.string :reason_for_the_gift
+      t.string :rule
+      t.integer :level
+      t.references :category
 
       t.timestamps
     end
