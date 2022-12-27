@@ -1,6 +1,4 @@
 class Achievement < ApplicationRecord
-  has_one :badge
-  has_one :user
-
-  # Эта модель создает иснстансы для каждого награждения
+  belongs_to :badge
+  belongs_to :user
 end

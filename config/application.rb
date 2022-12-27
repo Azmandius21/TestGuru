@@ -20,6 +20,7 @@ module TestGuru
     config.i18n.default_locale = :ru
 
     config.autoload_paths << "#{Rails.root}/lib/clients"
+    config.autoload_paths << "#{Rails.root}/app/rule_methods"
 
     #config.assets.initialize_on_precompile = false
   end
