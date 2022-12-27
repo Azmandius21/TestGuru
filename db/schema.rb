@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2022_12_13_100350) do
   enable_extension "plpgsql"
 
   create_table "achievements", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "badge_id"
+    t.bigint "user_id", null: false
+    t.bigint "badge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["badge_id"], name: "index_achievements_on_badge_id"
@@ -36,12 +36,10 @@ ActiveRecord::Schema.define(version: 2022_12_13_100350) do
   create_table "badges", force: :cascade do |t|
     t.string "title", null: false
     t.string "picture_url"
-    t.string "rule"
-    t.integer "level"
-    t.bigint "category_id"
+    t.bigint "rule_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_badges_on_category_id"
+    t.index ["rule_id"], name: "index_badges_on_rule_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -66,6 +64,11 @@ ActiveRecord::Schema.define(version: 2022_12_13_100350) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
+  end
+
+  create_table "rules", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description"
   end
 
   create_table "test_passages", force: :cascade do |t|
@@ -119,7 +122,10 @@ ActiveRecord::Schema.define(version: 2022_12_13_100350) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "achievements", "badges"
+  add_foreign_key "achievements", "users"
   add_foreign_key "answers", "questions"
+  add_foreign_key "badges", "rules"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"
