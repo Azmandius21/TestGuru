@@ -8,14 +8,11 @@ class BadgeGiveService
   end
 
   def create_achievements
+   find_available_badges
+    byebug
     @badges.map do |badge|
       Achievement.create!(user: @user, badge: badge)
-      byebug
     end
-  end
-
-  def badges
-    find_available_badges
   end
 
   def find_available_badges
