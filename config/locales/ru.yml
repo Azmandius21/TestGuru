@@ -24,7 +24,7 @@ ru:
         body: 'Текст ответа'
         correct: 'Правильный'
     select:
-      prompt: "Выберите из списка"
+      prompt: 'Выберите из списка'
     questions:
       create: 'Новый вопрос к тесту: %{test}'
       edit: 'Изменить вопрос к тесту: %{test}'
@@ -47,8 +47,9 @@ ru:
       complited: 'Тест завершен'
       overall_questions: 'Общее колличество вопросов: %{number}'
       progress: 'Ваш прогресс: %{number}'
+      show_badges: 'Показать бэйджи'
       back: 'Назад к тестам'
-    take_badge: "Вы получили новый бэйдж!"
+    take_badge: 'Вы получили новый бэйдж!'
 
   gists:
     create:

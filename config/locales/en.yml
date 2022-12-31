@@ -48,6 +48,7 @@ en:
       complited: 'Test complited'
       overall_questions: 'Overall number questions: %{number}'
       progress: 'Your progress is: %{number}'
+      show_badges: "Show all badges"
       back: 'Back to tests'
     update:
       take_badge: "You have a new badge!"
