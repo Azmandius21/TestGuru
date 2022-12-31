@@ -1,5 +1,3 @@
-require 'byebug'
-
 class BadgeGiveService
   def initialize(user)
     @user = user 
@@ -9,7 +7,6 @@ class BadgeGiveService
 
   def create_achievements
    find_available_badges
-    byebug
     @badges.map do |badge|
       Achievement.create!(user: @user, badge: badge)
     end

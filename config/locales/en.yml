@@ -49,6 +49,8 @@ en:
       overall_questions: 'Overall number questions: %{number}'
       progress: 'Your progress is: %{number}'
       back: 'Back to tests'
+    update:
+      take_badge: "You have a new badge!"
 
   gists:
     create:

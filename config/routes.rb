@@ -16,12 +16,18 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users do 
+    resources :badges, only: :index
+  end
+
   resources :test_passages, only: %i[show update] do
     resources :gists, only: :create
     member do
       get :result
     end
   end
+
+  
 
   namespace :admin do
     resources :tests do

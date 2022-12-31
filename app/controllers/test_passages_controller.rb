@@ -10,7 +10,7 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
     if @test_passage.complited?
       if @test_passage.success? && BadgeGiveService.new(current_user).create_achievements
-        flash[:alert] = "Take Badge!!!"
+        flash[:badge] = t('.take_badge')
       end
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)

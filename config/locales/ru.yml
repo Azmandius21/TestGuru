@@ -48,6 +48,7 @@ ru:
       overall_questions: 'Общее колличество вопросов: %{number}'
       progress: 'Ваш прогресс: %{number}'
       back: 'Назад к тестам'
+    take_badge: "Вы получили новый бэйдж!"
 
   gists:
     create:

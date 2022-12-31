@@ -4,5 +4,5 @@
   <%= t('.progress', number: @test_passage.progress ) %> %
 </strong><br>
 
-
+<%= link_to "Show Your Badges", user_badges_path(@test_passage.user) %>
 <%= link_to t('.back'), tests_path %>
