@@ -8,6 +8,7 @@ en:
       test_passage: 'TestPassage'
       user: 'User'
       admin: 'Admin'
+      badge: 'Badge'
 
     attributes:
       category:
@@ -29,6 +30,12 @@ en:
         test_id: 'test_id'
         current_question_id: 'current_question_id'
         correct_questions: 'correct_questions'
+      badge:
+        title: 'title'
+        rule_id: 'rule_id'
+        description: 'descriptions'
+        picture_url: 'picture_url' 
+        picture_name: 'picture file name'
 
     errors:
       messages:

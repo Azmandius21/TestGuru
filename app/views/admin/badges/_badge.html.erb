@@ -1,0 +1,9 @@
+<tr>
+  <td><%= badge.title %></td>
+  <td><%= Rule.find(badge.rule_id).name %></td>
+  <td><%= image_tag "#{badge.picture_url}", size: "50" %></td>
+  <td><%= link_to "Edit", edit_admin_badge_path(badge) %></td>
+  <td><%= link_to "Delete", admin_badge_path(badge), 
+                            method: :delete,
+                            data: {confirm: "Are you sure?"} %></td>
+</tr>

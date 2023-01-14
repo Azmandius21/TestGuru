@@ -1,0 +1,17 @@
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title  %>
+  </div>
+  <div>
+    <%= form.label :rule_id %>
+    <%= form.collection_select :rule_id, Rule.all, :id, :name, prompt: true %>
+  </div>
+   <div>
+    <%= form.label :picture_name %>
+    <%= form.text_field :picture_url %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
