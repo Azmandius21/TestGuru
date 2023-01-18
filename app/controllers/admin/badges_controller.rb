@@ -1,5 +1,5 @@
-class Admin:: BadgesController < Admin::BaseController
-  before_action :find_badge, only: %i[edit update]
+class Admin::BadgesController < Admin::BaseController
+  before_action :find_badge, only: %i[edit update destroy]
 
   def index
     @badges = Badge.all
@@ -14,21 +14,25 @@ class Admin:: BadgesController < Admin::BaseController
     @badge = Badge.create(badge_params)
 
     if @badge.save
-      redirect_to admin_badges_path, notice: "Badge created!"
+      redirect_to admin_badges_path, notice: 'Badge created!'
     else
       render :new
     end
-
   end
 
   def edit; end
 
   def update
     if @badge.update(badge_params)
-      redirect_to admin_badges_path, notice: "success!"
+      redirect_to admin_badges_path, notice: 'success!'
     else
       render :edit
     end
+  end
+
+  def destroy
+    @badge.destroy
+    redirect_to admin_badges_path
   end
 
   private

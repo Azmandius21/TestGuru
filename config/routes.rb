@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       get :result
     end
   end
-  
+
   namespace :admin do
     resources :badges
     resources :tests do
