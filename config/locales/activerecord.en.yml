@@ -18,6 +18,7 @@ en:
         level: 'level'
         category_id: 'category_id'
         author_id: 'author_id'
+        limit_time: 'limit time in minutes'
       question:
         body: 'body'
         test_id: 'test_id'
