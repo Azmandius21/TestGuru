@@ -35,6 +35,15 @@ class TestPassage < ApplicationRecord
   def limit_time
     test.limit_time
   end
+
+  def time_over?
+    if limit_time
+      created_at - Time.now + limit_time.minutes < 0
+    else
+      false
+    end
+  end
+  
   private
 
   def before_validation_set_first_question
@@ -57,11 +66,5 @@ class TestPassage < ApplicationRecord
     test.questions.order(:id).where('id > ?', current_question.id).first
   end
 
-  def time_over?
-    if limit_time
-      created_at - Time.now + limit_time.minutes < 0
-    else
-      false
-    end
-  end
+  
 end

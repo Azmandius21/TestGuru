@@ -1,9 +1,7 @@
 document.addEventListener('turbolinks:load', function() {
   const beginTime = new Date().getTime()
   const tagLimitTime = document.querySelector('.limit-time')
-  const limitTime = tagLimitTime.dataset.limit_time.getMinutes()
-  console.log(beginTime)
-  
+  var limitTime = tagLimitTime.dataset.limitTime * 1000 * 60  
   runInterval(beginTime, limitTime)
 })
 
@@ -12,7 +10,7 @@ function runInterval(beginTime, limitTime) {
  }
   
 function stopInterval() {
-  clearInterval(myInterval);
+  clearInterval(myInterval)
 }
 
 function countDownTime(time) {
@@ -20,13 +18,12 @@ function countDownTime(time) {
   difTime = time - timeNow
   
   if (difTime >= 0) {
-    document.querySelector('.seconds').innerHTML = Math.floor(difTime/1000)
-    document.querySelector('.minutes').innerHTML = Math.floor(difTime/(1000*60))
-    document.querySelector('.hours').innerHTML = Math.floor(difTime/(1000*60*60))    
+    document.querySelector('.seconds').innerHTML = Math.floor((difTime % (1000 * 60)) / 1000)
+    document.querySelector('.minutes').innerHTML = Math.floor((difTime % (1000 * 60 * 60)) / (1000 * 60))
+    document.querySelector('.hours').innerHTML = Math.floor((difTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))    
   } else {
     stopInterval()
   }
-  console.log(difTime)  
 }
 
 
