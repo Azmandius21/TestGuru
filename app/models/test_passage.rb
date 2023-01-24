@@ -43,7 +43,7 @@ class TestPassage < ApplicationRecord
       false
     end
   end
-  
+
   private
 
   def before_validation_set_first_question
@@ -65,6 +65,4 @@ class TestPassage < ApplicationRecord
   def next_question
     test.questions.order(:id).where('id > ?', current_question.id).first
   end
-
-  
 end
