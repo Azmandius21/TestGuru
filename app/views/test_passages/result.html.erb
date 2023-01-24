@@ -1,5 +1,5 @@
 <h1><%= t('.complited') %></h1>
-<h4><%= %><%=t('.overall_questions', number: @test_passage.test.questions.count) %></h4>
+<h4><%=t('.overall_questions', number: @test_passage.test.questions.count) %></h4>
 <strong class="<%= detect_class_for_color(@test_passage) %>">
   <%= t('.progress', number: @test_passage.progress ) %> %
 </strong><br>

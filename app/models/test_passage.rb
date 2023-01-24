@@ -17,7 +17,7 @@ class TestPassage < ApplicationRecord
   end
 
   def complited?
-    current_question.nil?
+    current_question.nil? || time_over?
   end
 
   def progress
@@ -32,6 +32,9 @@ class TestPassage < ApplicationRecord
     test.questions.index(current_question) + 1
   end
 
+  def limit_time
+    test.limit_time
+  end
   private
 
   def before_validation_set_first_question
@@ -52,5 +55,13 @@ class TestPassage < ApplicationRecord
 
   def next_question
     test.questions.order(:id).where('id > ?', current_question.id).first
+  end
+
+  def time_over?
+    if limit_time
+      created_at - Time.now + limit_time.minutes < 0
+    else
+      false
+    end
   end
 end
