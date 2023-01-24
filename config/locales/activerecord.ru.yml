@@ -8,6 +8,7 @@ ru:
       test_passage: 'ПрохождениеТеста'
       user: 'Пользователь'
       admin: 'Админ'
+      badge: 'Бэйдж'
 
     attributes:
       category:
@@ -29,6 +30,12 @@ ru:
         test_id: 'номер_теста'
         current_question_id: 'номер_текущего_вопроса'
         correct_questions: 'правильные_ответы'
+      badge:
+        title: 'Название'
+        rule_id: 'Правило'
+        description: 'Описание'
+        picture_url: 'Путь к изображению'   
+        picture_name: 'Имя файла с изображением'
 
     errors:
       messages:

@@ -14,7 +14,6 @@ class AddTypeAttributesToUsers < ActiveRecord::Migration[5.2]
 
   def self.down
     remove_columns(:users, :type, :first_name, :last_name)
-    remove_index(:users, :type)
 
     add_column :users, :name, :string
   end

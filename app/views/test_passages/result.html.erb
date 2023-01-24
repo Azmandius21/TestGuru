@@ -3,6 +3,9 @@
 <strong class="<%= detect_class_for_color(@test_passage) %>">
   <%= t('.progress', number: @test_passage.progress ) %> %
 </strong><br>
+<p>
+  <%= link_to t('.show_badges'), user_badges_path(@test_passage.user) %>
+</p>
 
 
 <%= link_to t('.back'), tests_path %>
