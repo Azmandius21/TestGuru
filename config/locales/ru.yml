@@ -64,7 +64,7 @@ ru:
       header: 'Доступные тесты'
       title: 'Заголовок'
       level: 'Уровень'
-      questions: 'Влпросов'
+      questions: 'Вопросов'
       actions: 'Действия'
     test:
       start: 'Старт'
@@ -111,12 +111,12 @@ ru:
         confirm: 'Вы уверены?'
     questions:
       show:
-        new_answer: 'Новый вопрос'
+        new_answer: 'Новый ответ'
         edit: 'Изменить'
         back: 'Назад'
         body: 'Текст вопроса'
         test: 'Тест:'
-        answers: 'Вопросы:'
+        answers: 'Ответы:'
       edit:
         header: 'Правка вопроса'
         show: 'Показать'

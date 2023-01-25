@@ -1,0 +1,20 @@
+<h1>Timer</h1>
+
+<%= content_tag :div,
+                 class: "limit-time",
+                 data: { limit_time: @test_passage.limit_time } do %>
+  <div id="clockdiv">
+    <div>
+      <span class="hours" id="hour"></span>
+      <div class="smalltext">Hours</div>
+    </div>
+    <div>
+      <span class="minutes" id="minute"></span>
+      <div class="smalltext">Minutes</div>
+    </div>
+    <div>
+      <span class="seconds" id="second"></span>
+      <div class="smalltext">Seconds</div>
+    </div>
+  </div>
+<% end %>

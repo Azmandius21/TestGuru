@@ -18,6 +18,11 @@
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </div>
 
+  <div class="field">
+    <%= form.label :limit_time %>
+    <%= form.number_field :limit_time %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

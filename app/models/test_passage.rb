@@ -17,7 +17,7 @@ class TestPassage < ApplicationRecord
   end
 
   def complited?
-    current_question.nil?
+    current_question.nil? || time_over?
   end
 
   def progress
@@ -30,6 +30,18 @@ class TestPassage < ApplicationRecord
 
   def number_current_question
     test.questions.index(current_question) + 1
+  end
+
+  def limit_time
+    test.limit_time
+  end
+
+  def time_over?
+    if limit_time
+      created_at - Time.now + limit_time.minutes < 0
+    else
+      false
+    end
   end
 
   private
