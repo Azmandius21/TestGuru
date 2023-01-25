@@ -1,6 +1,6 @@
 document.addEventListener('turbolinks:load', function() {
   const beginTime = new Date().getTime()
-  const tagLimitTime = document.querySelector('.limit-time')
+  const tagLimitTime = document.querySelector('.limit-time') 
   var limitTime = tagLimitTime.dataset.limitTime * 1000 * 60  
   runInterval(beginTime, limitTime)
 })
@@ -23,6 +23,7 @@ function countDownTime(time) {
     document.querySelector('.hours').innerHTML = Math.floor((difTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))    
   } else {
     stopInterval()
+    document.getElementById('form').submit()
   }
 }
 
